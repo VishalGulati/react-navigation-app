@@ -1,0 +1,7 @@
+.left-panel {
+    text-align: left;
+}
+
+.lp-btn + .lp-btn {
+    margin-left: 10px;
+}
