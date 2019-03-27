@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import LocationsContext from '../../context/LocationsContext';
 
 class AutoCompleteInput extends Component {
     constructor(props) {
@@ -8,16 +9,22 @@ class AutoCompleteInput extends Component {
         this.autocomplete = null;
     }
 
-    componentDidMount() {
-        this.autocomplete = new google.maps.places.Autocomplete(
-            this.autocompleteInput.current,
-            { types: ["geocode"] }
-        );
-        this.autocomplete.addListener("place_changed", this.handlePlaceChanged);
-    }
+    static contextType = LocationsContext;
 
     handlePlaceChanged = () => {
         const place = this.autocomplete.getPlace();
+        console.log(JSON.stringify(place));
+        this.context.updateLocation(this.props.inputId, place.geometry.location)
+    }
+
+    componentDidUpdate() {
+        if (this.context.mapLoaded) {
+            this.autocomplete = new window.google.maps.places.Autocomplete(
+                this.autocompleteInput.current,
+                { types: ["geocode"] }
+            );
+            this.autocomplete.addListener("place_changed", this.handlePlaceChanged);
+        }
     }
 
     render() {
@@ -27,15 +34,14 @@ class AutoCompleteInput extends Component {
                 className="form-control"
                 id={this.props.inputId}
                 value={this.props.value}
-                onChange={this.props.handleChange} />
+                placeholder="Enter a location" />
         );
     }
 }
 
 AutoCompleteInput.propTypes = {
     inputId: PropTypes.string,
-    value: PropTypes.string,
-    handleChange: PropTypes.func
+    value: PropTypes.string
 };
 
 export default AutoCompleteInput;

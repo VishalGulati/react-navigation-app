@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './RightPanel.css';
+import PropTypes from 'prop-types';
 
 class RightPanel extends Component {
-
     showPosition = (position) => {
         this.map = new window.google.maps.Map(document.getElementById('googleMap'), {
             center: {
@@ -14,13 +14,10 @@ class RightPanel extends Component {
         });
     }
 
-    initMap = () => {
-        navigator.geolocation.getCurrentPosition(this.showPosition);
-    }
-
-    componentDidMount() {
-        window.initMap = this.initMap;
-        window.loadJS('https://maps.googleapis.com/maps/api/js?key=AIzaSyD2D0r1DXCw-EMAB1xTlc4SFnsN5z7CGx4&libraries=places&callback=initMap')
+    componentDidUpdate(prevProps) {
+        if (this.props.mapLoaded && !prevProps.mapLoaded) {
+            navigator.geolocation.getCurrentPosition(this.showPosition);
+        }
     }
 
     render() {
@@ -31,5 +28,9 @@ class RightPanel extends Component {
         );
     }
 }
+
+RightPanel.propTypes = {
+    mapLoaded: PropTypes.bool
+};
 
 export default RightPanel;
