@@ -1,0 +1,12 @@
+.autocomplete-input {
+    width: 85%;
+    display: inline-block;
+}
+.cross-icon {
+    padding: 0 10px;
+    color: black;
+    font-weight: bold;
+    font-size: 1.5rem;
+    cursor: pointer;
+    font-family: cursive;
+}

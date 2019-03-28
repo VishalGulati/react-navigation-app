@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import AutoCompleteInput from '../AutoCompleteInput/AutoCompleteInput';
+import AutoCompleteInput from '../../containers/AutoCompleteInput/AutoCompleteInput';
 
 const FormGroup = (props) => {
     return (
