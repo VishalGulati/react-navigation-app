@@ -41,12 +41,19 @@ class RightPanel extends Component {
         });
     }
 
+    hideRoute = () => {
+        this.directionsDisplay.setMap(null);
+    }
+
     componentDidUpdate(prevProps) {
         if (this.props.mapLoaded && !prevProps.mapLoaded) {
             navigator.geolocation.getCurrentPosition(this.showPosition);
         }
         if (this.props.showRoute) {
             this.diaplayRoute();
+        }
+        if(this.props.resetPending){
+            this.hideRoute();
         }
     }
 
@@ -60,7 +67,9 @@ class RightPanel extends Component {
 }
 
 RightPanel.propTypes = {
-    mapLoaded: PropTypes.bool
+    mapLoaded: PropTypes.bool,
+    showRoute: PropTypes.bool,
+    route: PropTypes.array
 };
 
 export default RightPanel;
