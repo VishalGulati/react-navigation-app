@@ -9,7 +9,6 @@ const FormGroup = (props) => {
             <AutoCompleteInput 
                 className="form-control" 
                 inputId={props.inputId}
-                value={props.value} 
                 mapLoaded={props.mapLoaded} />
         </div>
     );

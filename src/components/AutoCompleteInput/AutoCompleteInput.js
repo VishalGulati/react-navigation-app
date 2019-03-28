@@ -13,7 +13,7 @@ class AutoCompleteInput extends Component {
 
     handlePlaceChanged = () => {
         const place = this.autocomplete.getPlace();
-        console.log(JSON.stringify(place));
+        console.log(JSON.stringify(place.geometry.location));
         this.context.updateLocation(this.props.inputId, place.geometry.location)
     }
 
@@ -28,12 +28,14 @@ class AutoCompleteInput extends Component {
     }
 
     render() {
+        console.log('re-render')
+        //const value = this.context[this.props.inputId];
+        //console.log('value is : ', value)
         return (
             <input type="text"
                 ref={this.autocompleteInput}
                 className="form-control"
                 id={this.props.inputId}
-                value={this.props.value}
                 placeholder="Enter a location" />
         );
     }

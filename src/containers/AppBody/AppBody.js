@@ -3,7 +3,9 @@ import './AppBody.css';
 import LeftPanel from '../../components/LeftPanel/LeftPanel';
 import RightPanel from '../../components/RightPanel/RightPanel';
 import LocationsContext from '../../context/LocationsContext';
-import {GOOGLE_API_URL} from '../../config/constants';
+import { GOOGLE_API_URL } from '../../config/constants';
+import API from '../../axios/AxiosLauncher';
+import { URLS } from '../../config/endpoints';
 
 class AppBody extends Component {
     constructor(props) {
@@ -17,16 +19,38 @@ class AppBody extends Component {
         });
     }
 
+    getCords = (obj) => [obj.lat, obj.lng];
+
     handleSubmit = (event) => {
+        event.preventDefault();
         const { start, drop } = this.state;
         if (start && drop) {
-            alert('Form submitted');
+            console.log('Form submitted');
+            const origin = this.getCords(JSON.parse(JSON.stringify(this.state.start))),
+                destination = this.getCords(JSON.parse(JSON.stringify(this.state.drop)));
+            API.post(URLS.submit, { origin, destination })
+                .then((result) => {
+                    console.log(result);
+                    const token = result && (result.data && result.data.token);
+                    const endpoint = URLS.getRoute.replace("{token}", token);
+                    return API.get(endpoint);
+                })
+                .then((result) => {
+                    console.log(result);
+            this.setState({
+                errorMessage: ''
+            })
+                })
+                .catch((response) => {
+                    this.setState({
+                        errorMessage: 'Something went wrong! Please try again in some time.'
+                    })
+                });
         } else {
             this.setState({
                 errorMessage: 'Both starting point and drop-off location are mandatory!'
             })
         }
-        event.preventDefault();
     }
 
     handleReset = (event) => {
