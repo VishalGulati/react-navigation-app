@@ -13,7 +13,7 @@ class AppBody extends Component {
         this.state = {
             start: '', drop: '', message: '', messageType: '',
             mapLoaded: false, resetPending: false, showRoute: false,
-            route: null
+            route: null, submitBtnLabel: 'Submit'
         };
     }
 
@@ -39,7 +39,8 @@ class AppBody extends Component {
     setMessageInState = (msg, msgType = '') => {
         this.setState({
             message: msg,
-            messageType: msgType
+            messageType: msgType,
+            submitBtnLabel: 'Re-Submit'
         })
     }
 
@@ -66,7 +67,7 @@ class AppBody extends Component {
                         const { total_distance, total_time } = result.data
                         this.setMessageInState('total distance: ' + total_distance + ' & ' +
                             'total time: ' + total_time);
-                        this.setState({ showRoute: true, route: result.data.path });
+                        this.setState({ submitBtnLabel: 'Re-Submit', showRoute: true, route: result.data.path });
                     }
                 })
                 .catch((response) => {
@@ -82,7 +83,7 @@ class AppBody extends Component {
     }
 
     handleReset = (event) => {
-        this.setState({ start: '', drop: '', message: '', resetPending: true });
+        this.setState({ start: '', drop: '', message: '', resetPending: true, submitBtnLabel: 'Submit' });
     }
 
     initMap = () => {

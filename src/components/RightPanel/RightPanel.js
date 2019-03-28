@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './RightPanel.css';
 import PropTypes from 'prop-types';
+import {getLocationOnMap} from '../../config/utilities';
 
 class RightPanel extends Component {
     showPosition = (position) => {
@@ -23,13 +24,13 @@ class RightPanel extends Component {
         const destination = middlePoints.pop();
         const wayPointsRoute = middlePoints.map((middlePt) => {
             return {
-                location: new window.google.maps.LatLng(middlePt[0], middlePt[1]),
+                location: getLocationOnMap(middlePt[0], middlePt[1]),
                 stopover: true
             }
         })
         this.directionsService.route({
-            origin: new window.google.maps.LatLng(origin[0], origin[1]),
-            destination: new window.google.maps.LatLng(destination[0], destination[1]),
+            origin: getLocationOnMap(origin[0], origin[1]),
+            destination: getLocationOnMap(destination[0], destination[1]),
             waypoints: wayPointsRoute,
             optimizeWaypoints: true,
             travelMode: 'DRIVING'
@@ -44,7 +45,7 @@ class RightPanel extends Component {
 
     componentDidUpdate(prevProps) {
         //&& !prevProps.mapLoaded
-        if (this.props.mapLoaded) {
+        if ((this.props.mapLoaded && !prevProps.mapLoaded) || this.props.showRoute) {
             if (this.props.showRoute) {
                 this.diaplayRoute();
             } else {

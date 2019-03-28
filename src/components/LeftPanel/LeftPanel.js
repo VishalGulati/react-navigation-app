@@ -21,7 +21,7 @@ class LeftPanel extends Component {
                         label="Drop-off point" />
                     <Message message={this.props.message} messageType={this.props.messageType} />
                     <button type="button" className="btn btn-primary lp-btn" onClick={this.props.handleSubmit}>
-                        Submit
+                        {this.props.submitBtnLabel}
                     </button>
                     <button type="button" className="btn btn-secondary lp-btn" onClick={this.props.handleReset}>
                         Reset
@@ -36,6 +36,7 @@ class LeftPanel extends Component {
 LeftPanel.propTypes = {
     message: PropTypes.string,
     messageType: PropTypes.string,
+    submitBtnLabel: PropTypes.string,
     mapLoaded: PropTypes.bool,
     handleSubmit: PropTypes.func,
     handleReset: PropTypes.func

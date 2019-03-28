@@ -1,0 +1,1 @@
+export const getLocationOnMap = (lat, lng) => new window.google.maps.LatLng(lat, lng)
