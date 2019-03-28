@@ -44,33 +44,47 @@ class AppBody extends Component {
         })
     }
 
+    makeRequestForRoute = (endpoint) => {
+        API.get(endpoint)
+            .then((result) => {
+                if (result.data.status === 'in progress') {
+                    return this.makeRequestForRoute(endpoint);
+                }
+                const unsuccessfulMsg = this.checkForUnsuccessfulMsg(result);
+                if (unsuccessfulMsg) {
+                    this.setMessageInState('Server responded with: ' + unsuccessfulMsg, 'error');
+                } else {
+                    const { total_distance, total_time } = result.data
+                    this.setMessageInState('total distance: ' + total_distance + ' & ' +
+                        'total time: ' + total_time);
+                    this.setState({ submitBtnLabel: 'Submit', showRoute: true, route: result.data.path });
+                }
+            })
+            .catch((response) => {
+                this.setMessageInState('Something went wrong! Please try again in some time.', 'error');
+            });
+    }
+
+    makeRequestForToken = (origin, destination) => {
+        API.post(URLS.submit, { origin, destination })
+            .then((result) => {
+                const token = result && (result.data && result.data.token);
+                const endpoint = URLS.getRoute.replace("{token}", token);
+                this.makeRequestForRoute(endpoint);
+            })
+            .catch((response) => {
+                this.setMessageInState('Something went wrong! Please try again in some time.', 'error');
+            });
+    }
+
     handleSubmit = (event) => {
         event.preventDefault();
-        this.setState({ submitBtnLabel: 'Loading...'});
+        this.setState({ submitBtnLabel: 'Loading...', message: '', messageType: '' });
         const { start, drop } = this.state;
         if (start && drop) {
             const origin = this.getCords(JSON.parse(JSON.stringify(this.state.start))),
                 destination = this.getCords(JSON.parse(JSON.stringify(this.state.drop)));
-            API.post(URLS.submit, { origin, destination })
-                .then((result) => {
-                    const token = result && (result.data && result.data.token);
-                    const endpoint = URLS.getRoute.replace("{token}", token);
-                    return API.get(endpoint);
-                })
-                .then((result) => {
-                    const unsuccessfulMsg = this.checkForUnsuccessfulMsg(result);
-                    if (unsuccessfulMsg) {
-                        this.setMessageInState('Server responded with: ' + unsuccessfulMsg, 'error');
-                    } else {
-                        const { total_distance, total_time } = result.data
-                        this.setMessageInState('total distance: ' + total_distance + ' & ' +
-                            'total time: ' + total_time);
-                        this.setState({ submitBtnLabel: 'Submit', showRoute: true, route: result.data.path });
-                    }
-                })
-                .catch((response) => {
-                    this.setMessageInState('Something went wrong! Please try again in some time.', 'error');
-                });
+            this.makeRequestForToken(origin, destination);
         } else {
             this.setMessageInState('Both starting point and drop-off location are mandatory!', 'error');
         }

@@ -30,6 +30,7 @@ ShallowWrapper {
         <Message />
         <button
           className="btn btn-primary lp-btn"
+          disabled={false}
           type="button"
         />
         <button
@@ -59,6 +60,7 @@ ShallowWrapper {
           <Message />,
           <button
             className="btn btn-primary lp-btn"
+            disabled={false}
             type="button"
           />,
           <button
@@ -115,6 +117,7 @@ ShallowWrapper {
           "props": Object {
             "children": undefined,
             "className": "btn btn-primary lp-btn",
+            "disabled": false,
             "onClick": undefined,
             "type": "button",
           },
@@ -159,6 +162,7 @@ ShallowWrapper {
           <Message />
           <button
             className="btn btn-primary lp-btn"
+            disabled={false}
             type="button"
           />
           <button
@@ -188,6 +192,7 @@ ShallowWrapper {
             <Message />,
             <button
               className="btn btn-primary lp-btn"
+              disabled={false}
               type="button"
             />,
             <button
@@ -244,6 +249,7 @@ ShallowWrapper {
             "props": Object {
               "children": undefined,
               "className": "btn btn-primary lp-btn",
+              "disabled": false,
               "onClick": undefined,
               "type": "button",
             },
