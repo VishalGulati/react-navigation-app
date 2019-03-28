@@ -28,9 +28,6 @@ class AutoCompleteInput extends Component {
     }
 
     render() {
-        console.log('re-render')
-        //const value = this.context[this.props.inputId];
-        //console.log('value is : ', value)
         return (
             <input type="text"
                 ref={this.autocompleteInput}

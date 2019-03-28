@@ -10,7 +10,7 @@ import { URLS } from '../../config/endpoints';
 class AppBody extends Component {
     constructor(props) {
         super(props);
-        this.state = { start: '', drop: '', errorMessage: '', mapLoaded: false };
+        this.state = { start: '', drop: '', message: '', messageType: '', mapLoaded: false, resetPending: false };
     }
 
     handleChange = (key, value) => {
@@ -20,6 +20,24 @@ class AppBody extends Component {
     }
 
     getCords = (obj) => [obj.lat, obj.lng];
+
+    checkForUnsuccessfulMsg = (response) => {
+        switch (response.data.status) {
+            case 'success':
+                return '';
+            case 'failure':
+                return response.data.error;
+            default:
+                return response.data.status;
+        }
+    }
+
+    setMessageInState = (msg, msgType = '') => {
+        this.setState({
+            message: msg,
+            messageType: msgType
+        })
+    }
 
     handleSubmit = (event) => {
         event.preventDefault();
@@ -37,25 +55,29 @@ class AppBody extends Component {
                 })
                 .then((result) => {
                     console.log(result);
-            this.setState({
-                errorMessage: ''
-            })
+                    const unsuccessfulMsg = this.checkForUnsuccessfulMsg(result);
+                    if (unsuccessfulMsg) {
+                        this.setMessageInState('Server responded with: ' + unsuccessfulMsg, 'error');
+                    } else {
+                        const {total_distance, total_time} = result.data
+                        this.setMessageInState('total distance: ' + total_distance + ' & ' +
+                        'total time: ' + total_time );
+                    }
                 })
                 .catch((response) => {
-                    this.setState({
-                        errorMessage: 'Something went wrong! Please try again in some time.'
-                    })
+                    this.setMessageInState('Something went wrong! Please try again in some time.', 'error');
                 });
         } else {
-            this.setState({
-                errorMessage: 'Both starting point and drop-off location are mandatory!'
-            })
+            this.setMessageInState('Both starting point and drop-off location are mandatory!', 'error');
         }
     }
 
+    resetDone = () => {
+        this.setState({ resetPending: false });
+    }
+
     handleReset = (event) => {
-        alert('Form reset');
-        this.setState({ start: '', drop: '', errorMessage: '' });
+        this.setState({ start: '', drop: '', message: '', resetPending: true });
     }
 
     initMap = () => {
@@ -79,6 +101,7 @@ class AppBody extends Component {
                         <LeftPanel
                             handleSubmit={this.handleSubmit}
                             handleReset={this.handleReset}
+                            resetDone={this.resetDone}
                             {...this.state} />
                     </LocationsContext.Provider>
                     <RightPanel mapLoaded={this.state.mapLoaded} />

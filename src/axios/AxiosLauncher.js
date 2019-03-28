@@ -1,6 +1,6 @@
 import axios from 'axios';
+import { baseURL } from '../config/endpoints';
 
-const baseURL = `https://mock-api.dev.lalamove.com`;
 
 const API = axios.create({
     baseURL: baseURL
