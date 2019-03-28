@@ -21,14 +21,17 @@ class RightPanel extends Component {
         const middlePoints = [...this.props.route];
         const origin = middlePoints.shift();
         const destination = middlePoints.pop();
-        console.log('órigin : ' + origin)
-        console.log('destination : ' + destination)
-        // const wayPointsRoute = middlePoints.map((middlePt) => {
-        //     return new window.google.maps.LatLng(middlePt[0], middlePt[1])
-        // })
+        const wayPointsRoute = middlePoints.map((middlePt) => {
+            return {
+                location: new window.google.maps.LatLng(middlePt[0], middlePt[1]),
+                stopover: true
+            }
+        })
         this.directionsService.route({
             origin: new window.google.maps.LatLng(origin[0], origin[1]),
             destination: new window.google.maps.LatLng(destination[0], destination[1]),
+            waypoints: wayPointsRoute,
+            optimizeWaypoints: true,
             travelMode: 'DRIVING'
         }, (response, status) => {
             if (status === 'OK') {
