@@ -10,7 +10,11 @@ import { URLS } from '../../config/endpoints';
 class AppBody extends Component {
     constructor(props) {
         super(props);
-        this.state = { start: '', drop: '', message: '', messageType: '', mapLoaded: false, resetPending: false };
+        this.state = {
+            start: '', drop: '', message: '', messageType: '',
+            mapLoaded: false, resetPending: false, showRoute: false,
+            route: null
+        };
     }
 
     handleChange = (key, value) => {
@@ -59,9 +63,10 @@ class AppBody extends Component {
                     if (unsuccessfulMsg) {
                         this.setMessageInState('Server responded with: ' + unsuccessfulMsg, 'error');
                     } else {
-                        const {total_distance, total_time} = result.data
+                        const { total_distance, total_time } = result.data
                         this.setMessageInState('total distance: ' + total_distance + ' & ' +
-                        'total time: ' + total_time );
+                            'total time: ' + total_time);
+                        this.setState({ showRoute: true, route: result.data.path });
                     }
                 })
                 .catch((response) => {
@@ -104,7 +109,10 @@ class AppBody extends Component {
                             resetDone={this.resetDone}
                             {...this.state} />
                     </LocationsContext.Provider>
-                    <RightPanel mapLoaded={this.state.mapLoaded} />
+                    <RightPanel
+                        mapLoaded={this.state.mapLoaded}
+                        showRoute={this.state.showRoute}
+                        route={this.state.route} />
                 </div>
             </div>
         );
