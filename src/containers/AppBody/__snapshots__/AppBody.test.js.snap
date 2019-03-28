@@ -25,6 +25,7 @@ ShallowWrapper {
           value={
             Object {
               "mapLoaded": false,
+              "resetPending": false,
               "updateLocation": [Function],
             }
           }
@@ -63,6 +64,7 @@ ShallowWrapper {
             value={
               Object {
                 "mapLoaded": false,
+                "resetPending": false,
                 "updateLocation": [Function],
               }
             }
@@ -113,6 +115,7 @@ ShallowWrapper {
             />,
             "value": Object {
               "mapLoaded": false,
+              "resetPending": false,
               "updateLocation": [Function],
             },
           },
@@ -195,6 +198,7 @@ ShallowWrapper {
             value={
               Object {
                 "mapLoaded": false,
+                "resetPending": false,
                 "updateLocation": [Function],
               }
             }
@@ -233,6 +237,7 @@ ShallowWrapper {
               value={
                 Object {
                   "mapLoaded": false,
+                  "resetPending": false,
                   "updateLocation": [Function],
                 }
               }
@@ -283,6 +288,7 @@ ShallowWrapper {
               />,
               "value": Object {
                 "mapLoaded": false,
+                "resetPending": false,
                 "updateLocation": [Function],
               },
             },

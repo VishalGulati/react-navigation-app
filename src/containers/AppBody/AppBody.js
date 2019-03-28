@@ -113,7 +113,8 @@ class AppBody extends Component {
                 <div className="row">
                     <LocationsContext.Provider value={{
                         mapLoaded: this.state.mapLoaded,
-                        updateLocation: this.handleChange
+                        updateLocation: this.handleChange,
+                        resetPending: this.state.resetPending
                     }}>
                         <LeftPanel
                             handleSubmit={this.handleSubmit}

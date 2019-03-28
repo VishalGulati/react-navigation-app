@@ -39,6 +39,9 @@ class AutoCompleteInput extends Component {
             );
             this.autocomplete.addListener("place_changed", this.handlePlaceChanged);
         }
+        if(this.context.resetPending) {
+            this.resetField();
+        }
     }
 
     render() {
