@@ -48,18 +48,15 @@ class AppBody extends Component {
         event.preventDefault();
         const { start, drop } = this.state;
         if (start && drop) {
-            console.log('Form submitted');
             const origin = this.getCords(JSON.parse(JSON.stringify(this.state.start))),
                 destination = this.getCords(JSON.parse(JSON.stringify(this.state.drop)));
             API.post(URLS.submit, { origin, destination })
                 .then((result) => {
-                    console.log(result);
                     const token = result && (result.data && result.data.token);
                     const endpoint = URLS.getRoute.replace("{token}", token);
                     return API.get(endpoint);
                 })
                 .then((result) => {
-                    console.log(result);
                     const unsuccessfulMsg = this.checkForUnsuccessfulMsg(result);
                     if (unsuccessfulMsg) {
                         this.setMessageInState('Server responded with: ' + unsuccessfulMsg, 'error');
@@ -96,7 +93,6 @@ class AppBody extends Component {
     }
 
     render() {
-        console.log(JSON.stringify(this.state))
         return (
             <div className="app-body-container">
                 <div className="row">

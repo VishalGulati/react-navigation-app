@@ -13,7 +13,6 @@ class AutoCompleteInput extends Component {
 
     handlePlaceChanged = () => {
         const place = this.autocomplete.getPlace();
-        console.log(JSON.stringify(place.geometry.location));
         this.context.updateLocation(this.props.inputId, place.geometry.location)
     }
 

@@ -37,9 +37,7 @@ class RightPanel extends Component {
         }, (response, status) => {
             if (status === 'OK') {
                 this.directionsDisplay.setDirections(response);
-            } else {
-                console.log('Directions request failed due to ' + status);
-            }
+            } 
         });
     }
 
