@@ -46,6 +46,7 @@ class AppBody extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
+        this.setState({ submitBtnLabel: 'Loading...'});
         const { start, drop } = this.state;
         if (start && drop) {
             const origin = this.getCords(JSON.parse(JSON.stringify(this.state.start))),
@@ -64,7 +65,7 @@ class AppBody extends Component {
                         const { total_distance, total_time } = result.data
                         this.setMessageInState('total distance: ' + total_distance + ' & ' +
                             'total time: ' + total_time);
-                        this.setState({ submitBtnLabel: 'Re-Submit', showRoute: true, route: result.data.path });
+                        this.setState({ submitBtnLabel: 'Submit', showRoute: true, route: result.data.path });
                     }
                 })
                 .catch((response) => {

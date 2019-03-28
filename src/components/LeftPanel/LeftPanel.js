@@ -20,7 +20,9 @@ class LeftPanel extends Component {
                     <FormGroup inputId="drop"
                         label="Drop-off point" />
                     <Message message={this.props.message} messageType={this.props.messageType} />
-                    <button type="button" className="btn btn-primary lp-btn" onClick={this.props.handleSubmit}>
+                    <button type="button" className="btn btn-primary lp-btn"
+                        disabled={this.props.submitBtnLabel === 'Loading...'}
+                        onClick={this.props.handleSubmit}>
                         {this.props.submitBtnLabel}
                     </button>
                     <button type="button" className="btn btn-secondary lp-btn" onClick={this.props.handleReset}>

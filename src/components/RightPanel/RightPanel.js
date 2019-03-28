@@ -37,18 +37,16 @@ class RightPanel extends Component {
         }, (response, status) => {
             if (status === 'OK') {
                 this.directionsDisplay.setDirections(response);
-            } 
+            }
         });
     }
 
     componentDidUpdate(prevProps) {
-        //&& !prevProps.mapLoaded
-        if ((this.props.mapLoaded && !prevProps.mapLoaded) || this.props.showRoute) {
-            if (this.props.showRoute) {
-                this.diaplayRoute();
-            } else {
-                navigator.geolocation.getCurrentPosition(this.showPosition);
-            }
+        if (this.props.mapLoaded && !prevProps.mapLoaded) {
+            navigator.geolocation.getCurrentPosition(this.showPosition);
+        }
+        if (this.props.showRoute) {
+            this.diaplayRoute();
         }
     }
 
