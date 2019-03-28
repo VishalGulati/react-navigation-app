@@ -1,0 +1,299 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot testing 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <LeftPanel />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": <form>
+        <FormGroup
+          inputId="start"
+          label="Starting location"
+        />
+        <FormGroup
+          inputId="drop"
+          label="Drop-off point"
+        />
+        <Message />
+        <button
+          className="btn btn-primary lp-btn"
+          type="button"
+        />
+        <button
+          className="btn btn-secondary lp-btn"
+          type="button"
+        >
+          Reset
+        </button>
+      </form>,
+      "className": "col-xs-12 col-md-4 left-panel",
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <FormGroup
+            inputId="start"
+            label="Starting location"
+          />,
+          <FormGroup
+            inputId="drop"
+            label="Drop-off point"
+          />,
+          <Message />,
+          <button
+            className="btn btn-primary lp-btn"
+            type="button"
+          />,
+          <button
+            className="btn btn-secondary lp-btn"
+            type="button"
+          >
+            Reset
+          </button>,
+        ],
+        "onSubmit": undefined,
+      },
+      "ref": [Function],
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "inputId": "start",
+            "label": "Starting location",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "inputId": "drop",
+            "label": "Drop-off point",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "message": undefined,
+            "messageType": undefined,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": undefined,
+            "className": "btn btn-primary lp-btn",
+            "onClick": undefined,
+            "type": "button",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "button",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Reset",
+            "className": "btn btn-secondary lp-btn",
+            "onClick": undefined,
+            "type": "button",
+          },
+          "ref": null,
+          "rendered": "Reset",
+          "type": "button",
+        },
+      ],
+      "type": "form",
+    },
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <form>
+          <FormGroup
+            inputId="start"
+            label="Starting location"
+          />
+          <FormGroup
+            inputId="drop"
+            label="Drop-off point"
+          />
+          <Message />
+          <button
+            className="btn btn-primary lp-btn"
+            type="button"
+          />
+          <button
+            className="btn btn-secondary lp-btn"
+            type="button"
+          >
+            Reset
+          </button>
+        </form>,
+        "className": "col-xs-12 col-md-4 left-panel",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <FormGroup
+              inputId="start"
+              label="Starting location"
+            />,
+            <FormGroup
+              inputId="drop"
+              label="Drop-off point"
+            />,
+            <Message />,
+            <button
+              className="btn btn-primary lp-btn"
+              type="button"
+            />,
+            <button
+              className="btn btn-secondary lp-btn"
+              type="button"
+            >
+              Reset
+            </button>,
+          ],
+          "onSubmit": undefined,
+        },
+        "ref": [Function],
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "inputId": "start",
+              "label": "Starting location",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "inputId": "drop",
+              "label": "Drop-off point",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "message": undefined,
+              "messageType": undefined,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": undefined,
+              "className": "btn btn-primary lp-btn",
+              "onClick": undefined,
+              "type": "button",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "button",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Reset",
+              "className": "btn btn-secondary lp-btn",
+              "onClick": undefined,
+              "type": "button",
+            },
+            "ref": null,
+            "rendered": "Reset",
+            "type": "button",
+          },
+        ],
+        "type": "form",
+      },
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": Object {
+            "hasShouldComponentUpdateBug": false,
+          },
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+  Symbol(enzyme.__childContext__): null,
+}
+`;

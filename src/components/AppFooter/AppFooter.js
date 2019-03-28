@@ -5,7 +5,7 @@ import './AppFooter.css';
 const AppFooter = () => {
     return (
         <footer>
-            Designed and Coded by &copy; Vishal Gulati - 2019
+            Designed and Coded by Vishal Gulati - &copy; 2019
         </footer>
     );
 }

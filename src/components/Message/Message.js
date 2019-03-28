@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import './Message.css';
 
 const Message = (props) => {
-    const { message } = props;
+    const { message, messageType } = props;
     return (
-        message ? <p className={props.messageType === 'error' ? "text-red" : ''}>
+        message ? <p className={messageType === 'error' ? "text-red" : ''}>
             {message}
         </p> : null
     );
