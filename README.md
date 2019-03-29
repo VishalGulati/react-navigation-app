@@ -64,6 +64,8 @@ Please NOTE: This app needs a google maps API key. API Key for using google maps
   - package.json
   
 2. Inside the .env file, create an environemnet variable with name REACT_APP_GOOGLE_API_KEY and assign it the API key. For example:
+
 REACT_APP_GOOGLE_API_KEY=123456789AABBCC
+
 Here 123456789AABBCC is the dummy key, replace it with yours.
 
