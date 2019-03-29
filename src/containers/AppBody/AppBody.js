@@ -61,8 +61,7 @@ class AppBody extends Component {
           this.setMessageInState(
             'total distance: ' +
               total_distance +
-              ' & ' +
-              'total time: ' +
+              ' <br/> total time: ' +
               total_time
           );
           this.setState({
@@ -116,7 +115,7 @@ class AppBody extends Component {
       this.makeRequestForToken(origin, destination);
     } else {
       this.setMessageInState(
-        'Both starting point and drop-off location are mandatory!',
+        'Both starting location and drop-off point are mandatory!',
         'error'
       );
     }
