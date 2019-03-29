@@ -63,9 +63,9 @@ Please NOTE: This app needs a google maps API key. API Key for using google maps
   - package-lock.json
   - package.json
   
-2. Inside the .env file, create an environemnet variable with name REACT_APP_GOOGLE_API_KEY and assign it the API key. For example:
+2. Inside the .env file, create an environment variable with name REACT_APP_GOOGLE_API_KEY and assign it the API key. For example, your .env file should look like:
 
-REACT_APP_GOOGLE_API_KEY=123456789AABBCC
+   REACT_APP_GOOGLE_API_KEY=123456789AABBCC
 
-Here 123456789AABBCC is the dummy key, replace it with yours.
+  Here 123456789AABBCC is the dummy key, replace it with yours.
 
