@@ -5,4 +5,9 @@ const API = axios.create({
   baseURL: baseURL
 });
 
-export default API;
+const requestGenerator = {
+  getReq: endpoint => API.get(endpoint),
+  postReq: (endpoint, payload) => API.post(endpoint, payload)
+};
+
+export default requestGenerator;

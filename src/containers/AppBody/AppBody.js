@@ -4,7 +4,7 @@ import LeftPanel from '../../components/LeftPanel/LeftPanel';
 import RightPanel from '../../components/RightPanel/RightPanel';
 import LocationsContext from '../../context/LocationsContext';
 import { GOOGLE_API_URL, DEFAULT_APP_STATE } from '../../config/constants';
-import API from '../../axios/AxiosLauncher';
+import requestGenerator from '../../axios/AxiosLauncher';
 import { URLS } from '../../config/endpoints';
 
 /**
@@ -44,7 +44,8 @@ class AppBody extends Component {
   };
 
   makeRequestForRoute = endpoint => {
-    API.get(endpoint)
+    requestGenerator
+      .getReq(endpoint)
       .then(result => {
         if (result.data.status === 'in progress') {
           return this.makeRequestForRoute(endpoint);
@@ -65,7 +66,7 @@ class AppBody extends Component {
               total_time
           );
           this.setState({
-            submitBtnLabel: 'Submit',
+            submitBtnLabel: 'Re-Submit',
             showRoute: true,
             route: result.data.path
           });
@@ -80,7 +81,8 @@ class AppBody extends Component {
   };
 
   makeRequestForToken = (origin, destination) => {
-    API.post(URLS.submit, { origin, destination })
+    requestGenerator
+      .postReq(URLS.submit, { origin, destination })
       .then(result => {
         const token = result && (result.data && result.data.token);
         const endpoint = URLS.getRoute.replace('{token}', token);

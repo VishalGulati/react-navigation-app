@@ -20,10 +20,12 @@ class AutoCompleteInput extends Component {
 
   handlePlaceChanged = () => {
     const place = this.autocomplete.getPlace();
-    this.context.updateLocation(this.props.inputId, place.geometry.location);
-    this.setState({
-      isDirty: true
-    });
+    if (place && place.geometry) {
+      this.context.updateLocation(this.props.inputId, place.geometry.location);
+      this.setState({
+        isDirty: true
+      });
+    }
   };
 
   resetField = () => {
