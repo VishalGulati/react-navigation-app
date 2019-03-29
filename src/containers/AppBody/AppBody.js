@@ -3,7 +3,7 @@ import './AppBody.css';
 import LeftPanel from '../../components/LeftPanel/LeftPanel';
 import RightPanel from '../../components/RightPanel/RightPanel';
 import LocationsContext from '../../context/LocationsContext';
-import { GOOGLE_API_URL } from '../../config/constants';
+import { GOOGLE_API_URL, DEFAULT_APP_STATE } from '../../config/constants';
 import API from '../../axios/AxiosLauncher';
 import { URLS } from '../../config/endpoints';
 
@@ -13,17 +13,7 @@ import { URLS } from '../../config/endpoints';
 class AppBody extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      start: '',
-      drop: '',
-      message: '',
-      messageType: '',
-      mapLoaded: false,
-      resetPending: false,
-      showRoute: false,
-      route: null,
-      submitBtnLabel: 'Submit'
-    };
+    this.state = { ...DEFAULT_APP_STATE };
   }
 
   handleChange = (key, value) => {
@@ -136,13 +126,9 @@ class AppBody extends Component {
 
   handleReset = event => {
     this.setState({
-      start: '',
-      drop: '',
-      message: '',
+      ...DEFAULT_APP_STATE,
       resetPending: true,
-      submitBtnLabel: 'Submit',
-      showRoute: false,
-      route: null
+      mapLoaded: true
     });
   };
 
