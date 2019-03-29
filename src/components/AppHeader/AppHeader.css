@@ -1,9 +1,9 @@
 header {
-    text-align: left;
-    padding: 10px;
-    background-color: #4A569D;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    z-index: 11;
+  text-align: left;
+  padding: 10px;
+  background-color: #4a569d;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 11;
 }
