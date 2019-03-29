@@ -4,13 +4,13 @@ import PropTypes from 'prop-types';
 import {getLocationOnMap} from '../../config/utilities';
 
 class RightPanel extends Component {
-    showPosition = (position) => {
+    showDefaultPosition = () => {
         this.directionsService = new window.google.maps.DirectionsService();
         this.directionsDisplay = new window.google.maps.DirectionsRenderer();
         this.map = new window.google.maps.Map(document.getElementById('googleMap'), {
             center: {
-                lat: position.coords.latitude,
-                lng: position.coords.longitude
+                lat: 51.509865,
+                lng: -0.118092
             },
             zoom: 12,
             mapTypeId: 'roadmap',
@@ -43,7 +43,7 @@ class RightPanel extends Component {
 
     componentDidUpdate(prevProps) {
         if (this.props.mapLoaded && !prevProps.mapLoaded) {
-            navigator.geolocation.getCurrentPosition(this.showPosition);
+           this.showDefaultPosition();
         }
         if (this.props.showRoute) {
             this.diaplayRoute();
