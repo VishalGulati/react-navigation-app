@@ -21,10 +21,10 @@ class RightPanel extends Component {
         mapTypeId: 'roadmap'
       }
     );
-    this.directionsDisplay.setMap(this.map);
   };
 
   diaplayRoute = () => {
+    this.directionsDisplay.setMap(this.map);
     const middlePoints = [...this.props.route];
     const origin = middlePoints.shift();
     const destination = middlePoints.pop();
@@ -50,12 +50,18 @@ class RightPanel extends Component {
     );
   };
 
+  resetMap = () => {
+    this.directionsDisplay.setMap(null);
+  };
+
   componentDidUpdate(prevProps) {
     if (this.props.mapLoaded && !prevProps.mapLoaded) {
       this.showDefaultPosition();
     }
     if (this.props.showRoute) {
       this.diaplayRoute();
+    } else {
+      this.resetMap();
     }
   }
 

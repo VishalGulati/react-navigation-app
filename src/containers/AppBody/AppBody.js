@@ -109,7 +109,9 @@ class AppBody extends Component {
     this.setState({
       submitBtnLabel: 'Loading...',
       message: '',
-      messageType: ''
+      messageType: '',
+      showRoute: false,
+      route: null
     });
     const { start, drop } = this.state;
     if (start && drop) {
@@ -138,7 +140,9 @@ class AppBody extends Component {
       drop: '',
       message: '',
       resetPending: true,
-      submitBtnLabel: 'Submit'
+      submitBtnLabel: 'Submit',
+      showRoute: false,
+      route: null
     });
   };
 
@@ -172,6 +176,7 @@ class AppBody extends Component {
           <RightPanel
             mapLoaded={this.state.mapLoaded}
             showRoute={this.state.showRoute}
+            resetPending={this.state.resetPending}
             route={this.state.route}
           />
         </div>
