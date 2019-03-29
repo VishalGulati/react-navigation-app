@@ -47,7 +47,6 @@ ShallowWrapper {
         </Context.Provider>
         <RightPanel
           mapLoaded={false}
-          resetPending={false}
           route={null}
           showRoute={false}
         />
@@ -87,7 +86,6 @@ ShallowWrapper {
           </Context.Provider>,
           <RightPanel
             mapLoaded={false}
-            resetPending={false}
             route={null}
             showRoute={false}
           />,
@@ -175,7 +173,6 @@ ShallowWrapper {
           "nodeType": "class",
           "props": Object {
             "mapLoaded": false,
-            "resetPending": false,
             "route": null,
             "showRoute": false,
           },
@@ -223,7 +220,6 @@ ShallowWrapper {
           </Context.Provider>
           <RightPanel
             mapLoaded={false}
-            resetPending={false}
             route={null}
             showRoute={false}
           />
@@ -263,7 +259,6 @@ ShallowWrapper {
             </Context.Provider>,
             <RightPanel
               mapLoaded={false}
-              resetPending={false}
               route={null}
               showRoute={false}
             />,
@@ -351,7 +346,6 @@ ShallowWrapper {
             "nodeType": "class",
             "props": Object {
               "mapLoaded": false,
-              "resetPending": false,
               "route": null,
               "showRoute": false,
             },

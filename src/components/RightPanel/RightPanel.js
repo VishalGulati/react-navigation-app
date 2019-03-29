@@ -41,19 +41,12 @@ class RightPanel extends Component {
         });
     }
 
-    hideRoute = () => {
-        this.directionsDisplay.setMap(null);
-    }
-
     componentDidUpdate(prevProps) {
         if (this.props.mapLoaded && !prevProps.mapLoaded) {
             navigator.geolocation.getCurrentPosition(this.showPosition);
         }
         if (this.props.showRoute) {
             this.diaplayRoute();
-        }
-        if(this.props.resetPending){
-            this.hideRoute();
         }
     }
 

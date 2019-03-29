@@ -125,8 +125,7 @@ class AppBody extends Component {
                     <RightPanel
                         mapLoaded={this.state.mapLoaded}
                         showRoute={this.state.showRoute}
-                        route={this.state.route}
-                        resetPending={this.state.resetPending} />
+                        route={this.state.route} />
                 </div>
             </div>
         );
