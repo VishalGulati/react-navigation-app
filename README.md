@@ -52,5 +52,18 @@ If you aren’t satisfied with the build tool and configuration choices, you can
 ## Adding your GOOGLE MAPS API key:
 
 Please NOTE: This app needs a google maps API key. API Key for using google maps is not included in the source code, instead the same has to be added by user in following file:
-  **src/config/constants.js** - In this file, there is a constant declared on line 3 i.e. GOOGLE_API_KEY. This constant has to be set to the API key for using this application.
+
+1. Create a file called .env in the root of your project's directory.
+- your_project_folder
+  - node_modules
+  - public
+  - src
+  - .env         <-- create it here
+  - .gitignore
+  - package-lock.json
+  - package.json
+  
+2. Inside the .env file, create an environemnet variable with name REACT_APP_GOOGLE_API_KEY and assign it the API key. For example:
+REACT_APP_GOOGLE_API_KEY=123456789AABBCC
+Here 123456789AABBCC is the dummy key, replace it with yours.
 
