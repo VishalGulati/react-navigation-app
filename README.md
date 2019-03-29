@@ -45,8 +45,8 @@ If you aren’t satisfied with the build tool and configuration choices, you can
 3. It displays the driving route returned from the API, **in the correct order**, on [Google Maps](https://developers.google.com/maps/).
 4. The application is responsive and renders well on all devices.
 
-## Adding you GOOGLE MAPS API key:
+## Adding your GOOGLE MAPS API key:
 
-API Key for using google maps is not included in the source code, instead the same has to be added by user in following file:
+Please NOTE: This app needs a google maps API key. API Key for using google maps is not included in the source code, instead the same has to be added by user in following file:
   **src/config/constants.js** - In this file, there is a constant declared on line 3 i.e. GOOGLE_API_KEY. This constant has to be set to the API key for using this application.
 
