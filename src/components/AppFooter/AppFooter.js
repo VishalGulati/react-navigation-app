@@ -1,7 +1,10 @@
-
 import React from 'react';
 import './AppFooter.css';
 
+
+/**
+ * The application footer
+ */
 const AppFooter = () => {
     return (
         <footer>

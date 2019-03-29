@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 import LocationsContext from '../../context/LocationsContext';
 import './AutoCompleteInput.css';
 
+/**
+ * A re-usable component that returns a input field that is bound with Google maps API
+ */
 class AutoCompleteInput extends Component {
     constructor(props) {
         super(props);

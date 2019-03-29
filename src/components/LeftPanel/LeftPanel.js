@@ -4,6 +4,9 @@ import PropTypes from 'prop-types';
 import FormGroup from '../FormGroup/FormGroup';
 import Message from '../Message/Message';
 
+/**
+ * The Left panel of the application that contains the search form.
+ */
 class LeftPanel extends Component {
     componentDidUpdate() {
         if (this.props.resetPending) {

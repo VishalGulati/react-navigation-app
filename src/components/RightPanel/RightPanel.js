@@ -3,6 +3,9 @@ import './RightPanel.css';
 import PropTypes from 'prop-types';
 import {getLocationOnMap} from '../../config/utilities';
 
+/**
+ * The Right halve of main page that displays the map with route based on search result.
+ */
 class RightPanel extends Component {
     showDefaultPosition = () => {
         this.directionsService = new window.google.maps.DirectionsService();

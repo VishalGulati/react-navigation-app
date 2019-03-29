@@ -4,6 +4,10 @@ import AppHeader from './components/AppHeader/AppHeader';
 import AppBody from './containers/AppBody/AppBody';
 import AppFooter from './components/AppFooter/AppFooter';
 
+/**
+ * The container component that wraps around whole application. It imports header, body and footer
+ * of the application and includes them in the DOM.
+ */
 const App = () => {
   return (
     <div className="App">

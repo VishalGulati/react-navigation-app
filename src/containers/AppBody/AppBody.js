@@ -7,6 +7,10 @@ import { GOOGLE_API_URL } from '../../config/constants';
 import API from '../../axios/AxiosLauncher';
 import { URLS } from '../../config/endpoints';
 
+
+/**
+ * The application body, internally split into 2 halves: LeftPanel and RightPanel respectively.
+ */
 class AppBody extends Component {
     constructor(props) {
         super(props);
