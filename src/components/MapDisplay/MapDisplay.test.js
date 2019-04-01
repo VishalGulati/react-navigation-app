@@ -1,19 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import AppBody from './AppBody';
+import MapDisplay from './MapDisplay';
 import { shallow } from 'enzyme';
 
-global.loadJS = jest.fn();
-const wrapper = shallow(<AppBody />);
+const wrapper = shallow(<MapDisplay />);
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<AppBody />, div);
+  ReactDOM.render(<MapDisplay />, div);
   ReactDOM.unmountComponentAtNode(div);
 });
 
-it('Component has container div with class app-body-container', () => {
-  expect(wrapper.find('div.app-body-container').length).toEqual(1);
+it('Component has container div to hold the google map', () => {
+  expect(wrapper.find('div#googleMap').length).toEqual(1);
 });
 
 it('snapshot testing', () => {

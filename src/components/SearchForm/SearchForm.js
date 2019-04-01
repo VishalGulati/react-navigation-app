@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './LeftPanel.css';
+import './SearchForm.css';
 import PropTypes from 'prop-types';
 import FormGroup from '../FormGroup/FormGroup';
 import Message from '../Message/Message';
@@ -7,7 +7,11 @@ import Message from '../Message/Message';
 /**
  * The Left panel of the application that contains the search form.
  */
-class LeftPanel extends Component {
+class SearchForm extends Component {
+  /**
+ * @name componentDidUpdate
+ * @description React Hook
+ */
   componentDidUpdate() {
     if (this.props.resetPending) {
       this.myFormRef.reset();
@@ -48,7 +52,7 @@ class LeftPanel extends Component {
   }
 }
 
-LeftPanel.propTypes = {
+SearchForm.propTypes = {
   message: PropTypes.string,
   messageType: PropTypes.string,
   submitBtnLabel: PropTypes.string,
@@ -57,4 +61,4 @@ LeftPanel.propTypes = {
   handleReset: PropTypes.func
 };
 
-export default LeftPanel;
+export default SearchForm;

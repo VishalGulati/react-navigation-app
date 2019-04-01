@@ -1,29 +1,50 @@
 import React, { Component } from 'react';
-import './AppBody.css';
-import LeftPanel from '../../components/LeftPanel/LeftPanel';
-import RightPanel from '../../components/RightPanel/RightPanel';
-import LocationsContext from '../../context/LocationsContext';
-import { GOOGLE_API_URL, DEFAULT_APP_STATE } from '../../config/constants';
-import requestGenerator from '../../axios/AxiosLauncher';
+import './NavigationPage.css';
+import SearchForm from '../../components/SearchForm/SearchForm';
+import MapDisplay from '../../components/MapDisplay/MapDisplay';
+import LocationsContext from '../../context/locationsContext';
+import {
+  GOOGLE_API_URL,
+  DEFAULT_APP_STATE,
+  ERROR_MESSAGES,
+  IN_PROGRESS_STATUS
+} from '../../config/constants';
+import requestGenerator from '../../http-client/httpClient';
 import { URLS } from '../../config/endpoints';
 
 /**
- * The application body, internally split into 2 halves: LeftPanel and RightPanel respectively.
+ * The application body, internally split into 2 halves: SearchForm and MapDisplay respectively.
  */
-class AppBody extends Component {
+class NavigationPage extends Component {
   constructor(props) {
     super(props);
     this.state = { ...DEFAULT_APP_STATE };
   }
 
+  /**
+     * @name handleChange
+     * @description This method updates the state based on params
+     * @param key Key in state that needs to be updated
+     * @param value Value for the key in state that needs to be updated
+     */
   handleChange = (key, value) => {
     this.setState({
       [key]: value
     });
   };
 
+  /**
+     * @name getCords
+     * @description This method returns latitude and longitude in array from the object
+     * @param obj Object that contains keys lat and lng
+     */
   getCords = obj => [obj.lat, obj.lng];
 
+  /**
+     * @name checkForUnsuccessfulMsg
+     * @description This method checks if service responds with unsuccessful message
+     * @param response the search response
+     */
   checkForUnsuccessfulMsg = response => {
     switch (response.data.status) {
       case 'success':
@@ -35,6 +56,12 @@ class AppBody extends Component {
     }
   };
 
+  /**
+     * @name setMessageInState
+     * @description This method updates the message and messageType properties in state
+     * @param msg Message to be displayed
+     * @param msgType Type of message
+     */
   setMessageInState = (msg, msgType = '') => {
     this.setState({
       message: msg,
@@ -43,19 +70,21 @@ class AppBody extends Component {
     });
   };
 
+  /**
+     * @name makeRequestForRoute
+     * @description This method makes a request for route based on the endpoint it receives
+     * @param endpoint the search endpoint
+     */
   makeRequestForRoute = endpoint => {
     requestGenerator
       .getReq(endpoint)
       .then(result => {
-        if (result.data.status === 'in progress') {
+        if (result.data.status === IN_PROGRESS_STATUS) {
           return this.makeRequestForRoute(endpoint);
         }
         const unsuccessfulMsg = this.checkForUnsuccessfulMsg(result);
         if (unsuccessfulMsg) {
-          this.setMessageInState(
-            'Server responded with: ' + unsuccessfulMsg,
-            'error'
-          );
+          this.setMessageInState(unsuccessfulMsg, 'error');
         } else {
           const { total_distance, total_time } = result.data;
           this.setMessageInState(
@@ -72,13 +101,16 @@ class AppBody extends Component {
         }
       })
       .catch(response => {
-        this.setMessageInState(
-          'Something went wrong! Please try again in some time.',
-          'error'
-        );
+        this.setMessageInState(ERROR_MESSAGES.serviceError, 'error');
       });
   };
 
+  /**
+     * @name makeRequestForToken
+     * @description This method makes a request for token
+     * @param origin the origin location
+     * @param destination the drop-of location
+     */
   makeRequestForToken = (origin, destination) => {
     requestGenerator
       .postReq(URLS.submit, { origin, destination })
@@ -88,13 +120,15 @@ class AppBody extends Component {
         this.makeRequestForRoute(endpoint);
       })
       .catch(response => {
-        this.setMessageInState(
-          'Something went wrong! Please try again in some time.',
-          'error'
-        );
+        this.setMessageInState(ERROR_MESSAGES.serviceError, 'error');
       });
   };
 
+  /**
+     * @name handleSubmit
+     * @description This method executes on form submit
+     * @param event form submit event
+     */
   handleSubmit = event => {
     event.preventDefault();
     this.setState({
@@ -114,17 +148,23 @@ class AppBody extends Component {
         );
       this.makeRequestForToken(origin, destination);
     } else {
-      this.setMessageInState(
-        'Both starting location and drop-off point are mandatory!',
-        'error'
-      );
+      this.setMessageInState(ERROR_MESSAGES.uiValidationError, 'error');
     }
   };
 
+  /**
+     * @name resetDone
+     * @description This method marks the reset flag to true
+     */
   resetDone = () => {
     this.setState({ resetPending: false });
   };
 
+  /**
+     * @name handleReset
+     * @description This method executes on reset button click
+     * @param event button click synthetic event
+     */
   handleReset = event => {
     this.setState({
       ...DEFAULT_APP_STATE,
@@ -133,10 +173,18 @@ class AppBody extends Component {
     });
   };
 
+  /**
+     * @name initMap
+     * @description This method executes when app successfully loads Google maps
+     */
   initMap = () => {
     this.setState({ mapLoaded: true });
   };
 
+  /**
+ * @name componentDidUpdate
+ * @description React Hook
+ */
   componentDidMount() {
     window.initMap = this.initMap;
     window.loadJS(`${GOOGLE_API_URL}&libraries=places&callback=initMap`);
@@ -153,14 +201,14 @@ class AppBody extends Component {
               resetPending: this.state.resetPending
             }}
           >
-            <LeftPanel
+            <SearchForm
               handleSubmit={this.handleSubmit}
               handleReset={this.handleReset}
               resetDone={this.resetDone}
               {...this.state}
             />
           </LocationsContext.Provider>
-          <RightPanel
+          <MapDisplay
             mapLoaded={this.state.mapLoaded}
             showRoute={this.state.showRoute}
             resetPending={this.state.resetPending}
@@ -172,4 +220,4 @@ class AppBody extends Component {
   }
 }
 
-export default AppBody;
+export default NavigationPage;

@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import LeftPanel from './LeftPanel';
+import SearchForm from './SearchForm';
 import { shallow } from 'enzyme';
 
-const wrapper = shallow(<LeftPanel />);
+const wrapper = shallow(<SearchForm />);
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<LeftPanel />, div);
+  ReactDOM.render(<SearchForm />, div);
   ReactDOM.unmountComponentAtNode(div);
 });
 

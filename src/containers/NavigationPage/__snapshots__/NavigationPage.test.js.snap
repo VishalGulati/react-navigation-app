@@ -3,7 +3,7 @@
 exports[`snapshot testing 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <AppBody />,
+  Symbol(enzyme.__unrendered__): <NavigationPage />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "checkPropTypes": [Function],
@@ -30,7 +30,7 @@ ShallowWrapper {
             }
           }
         >
-          <LeftPanel
+          <SearchForm
             drop=""
             handleReset={[Function]}
             handleSubmit={[Function]}
@@ -45,7 +45,7 @@ ShallowWrapper {
             submitBtnLabel="Submit"
           />
         </Context.Provider>
-        <RightPanel
+        <MapDisplay
           mapLoaded={false}
           resetPending={false}
           route={null}
@@ -70,7 +70,7 @@ ShallowWrapper {
               }
             }
           >
-            <LeftPanel
+            <SearchForm
               drop=""
               handleReset={[Function]}
               handleSubmit={[Function]}
@@ -85,7 +85,7 @@ ShallowWrapper {
               submitBtnLabel="Submit"
             />
           </Context.Provider>,
-          <RightPanel
+          <MapDisplay
             mapLoaded={false}
             resetPending={false}
             route={null}
@@ -101,7 +101,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "function",
           "props": Object {
-            "children": <LeftPanel
+            "children": <SearchForm
               drop=""
               handleReset={[Function]}
               handleSubmit={[Function]}
@@ -206,7 +206,7 @@ ShallowWrapper {
               }
             }
           >
-            <LeftPanel
+            <SearchForm
               drop=""
               handleReset={[Function]}
               handleSubmit={[Function]}
@@ -221,7 +221,7 @@ ShallowWrapper {
               submitBtnLabel="Submit"
             />
           </Context.Provider>
-          <RightPanel
+          <MapDisplay
             mapLoaded={false}
             resetPending={false}
             route={null}
@@ -246,7 +246,7 @@ ShallowWrapper {
                 }
               }
             >
-              <LeftPanel
+              <SearchForm
                 drop=""
                 handleReset={[Function]}
                 handleSubmit={[Function]}
@@ -261,7 +261,7 @@ ShallowWrapper {
                 submitBtnLabel="Submit"
               />
             </Context.Provider>,
-            <RightPanel
+            <MapDisplay
               mapLoaded={false}
               resetPending={false}
               route={null}
@@ -277,7 +277,7 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "function",
             "props": Object {
-              "children": <LeftPanel
+              "children": <SearchForm
                 drop=""
                 handleReset={[Function]}
                 handleSubmit={[Function]}

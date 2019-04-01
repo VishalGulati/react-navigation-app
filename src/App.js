@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import AppHeader from './components/AppHeader/AppHeader';
-import AppBody from './containers/AppBody/AppBody';
+import NavigationPage from './containers/NavigationPage/NavigationPage';
 import AppFooter from './components/AppFooter/AppFooter';
 
 /**
@@ -12,7 +12,7 @@ const App = () => {
   return (
     <div className="App">
       <AppHeader />
-      <AppBody />
+      <NavigationPage />
       <AppFooter />
     </div>
   );

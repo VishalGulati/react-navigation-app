@@ -1,28 +1,33 @@
 import React, { Component } from 'react';
-import './RightPanel.css';
+import './MapDisplay.css';
 import PropTypes from 'prop-types';
 import { getLocationOnMap } from '../../config/utilities';
 
 /**
  * The Right halve of main page that displays the map with route based on search result.
  */
-class RightPanel extends Component {
+class MapDisplay extends Component {
+  /**
+ * @name showDefaultPosition
+ * @description This method shows default position on map when the app load
+ */
   showDefaultPosition = () => {
     this.directionsService = new window.google.maps.DirectionsService();
     this.directionsDisplay = new window.google.maps.DirectionsRenderer();
-    this.map = new window.google.maps.Map(
-      document.getElementById('googleMap'),
-      {
-        center: {
-          lat: 51.509865,
-          lng: -0.118092
-        },
-        zoom: 12,
-        mapTypeId: 'roadmap'
-      }
-    );
+    this.map = new window.google.maps.Map(this.mapWrapper, {
+      center: {
+        lat: 51.509865,
+        lng: -0.118092
+      },
+      zoom: 12,
+      mapTypeId: 'roadmap'
+    });
   };
 
+  /**
+ * @name diaplayRoute
+ * @description This method displays the route on map once search request is successful
+ */
   diaplayRoute = () => {
     this.directionsDisplay.setMap(this.map);
     const middlePoints = [...this.props.route];
@@ -50,10 +55,18 @@ class RightPanel extends Component {
     );
   };
 
+  /**
+ * @name resetMap
+ * @description This method removes the previously displayed route from map
+ */
   resetMap = () => {
     this.directionsDisplay.setMap(null);
   };
 
+  /**
+ * @name componentDidUpdate
+ * @description React Hook
+ */
   componentDidUpdate(prevProps) {
     if (this.props.mapLoaded && !prevProps.mapLoaded) {
       this.showDefaultPosition();
@@ -68,16 +81,16 @@ class RightPanel extends Component {
   render() {
     return (
       <div className="col-xs-12 col-md-8">
-        <div id="googleMap" />
+        <div id="googleMap" ref={el => (this.mapWrapper = el)} />
       </div>
     );
   }
 }
 
-RightPanel.propTypes = {
+MapDisplay.propTypes = {
   mapLoaded: PropTypes.bool,
   showRoute: PropTypes.bool,
   route: PropTypes.array
 };
 
-export default RightPanel;
+export default MapDisplay;

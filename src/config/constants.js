@@ -14,3 +14,10 @@ export const DEFAULT_APP_STATE = {
   route: null,
   submitBtnLabel: 'Submit'
 };
+
+export const ERROR_MESSAGES = {
+  serviceError: 'Something went wrong! Please try again in some time.',
+  uiValidationError: 'Both starting location and drop-off point are mandatory!'
+};
+
+export const IN_PROGRESS_STATUS = 'in progress';

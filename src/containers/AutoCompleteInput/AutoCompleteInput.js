@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import LocationsContext from '../../context/LocationsContext';
+import LocationsContext from '../../context/locationsContext';
 import './AutoCompleteInput.css';
 
 /**
@@ -37,7 +37,7 @@ class AutoCompleteInput extends Component {
   };
 
   componentDidUpdate() {
-    if (this.context.mapLoaded) {
+    if (this.context.mapLoaded && !this.autocomplete) {
       this.autocomplete = new window.google.maps.places.Autocomplete(
         this.autocompleteInput.current,
         { types: ['geocode'] }

@@ -3,7 +3,7 @@
 exports[`snapshot testing 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <RightPanel />,
+  Symbol(enzyme.__unrendered__): <MapDisplay />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "checkPropTypes": [Function],
@@ -31,7 +31,7 @@ ShallowWrapper {
       "props": Object {
         "id": "googleMap",
       },
-      "ref": null,
+      "ref": [Function],
       "rendered": null,
       "type": "div",
     },
@@ -56,7 +56,7 @@ ShallowWrapper {
         "props": Object {
           "id": "googleMap",
         },
-        "ref": null,
+        "ref": [Function],
         "rendered": null,
         "type": "div",
       },
