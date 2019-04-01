@@ -2,6 +2,39 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## About the application 
+
+This app has below functionalities majorly:
+
+1. Get one pickup location and one drop-off location from the user and submit them to the Mock API. Furthermore, this app makes sure that:
+	- API usage must be in accordance with the documentation.
+	- Errors are handled.
+	- Automatic retries are made when the backend is busy.
+2. Addresses autocomplete.
+3. It displays the driving route returned from the API, **in the correct order**, on [Google Maps](https://developers.google.com/maps/).
+4. The application is responsive and renders well on all devices.
+
+
+## Setup needed to run the app: 
+
+Please NOTE: This app needs a google maps API key. API Key for using google maps is not included in the source code, instead the same has to be added by user in following file:
+
+1. Create a file called .env in the root of your project's directory.
+- your_project_folder
+  - node_modules
+  - public
+  - src
+  - .env         <-- create it here
+  - .gitignore
+  - package-lock.json
+  - package.json
+  
+2. Inside the .env file, create an environment variable with name REACT_APP_GOOGLE_API_KEY and assign it the API key. For example, your .env file should look like:
+
+   REACT_APP_GOOGLE_API_KEY=123456789AABBCC
+
+  Here 123456789AABBCC is the dummy key, replace it with yours.
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -39,33 +72,5 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-## Major Functionalities of the application 
 
-1. Get one pickup location and one drop-off location from the user and submit them to the Mock API. Furthermore, this app makes sure that:
-	- API usage must be in accordance with the documentation.
-	- Errors are handled.
-	- Automatic retries are made when the backend is busy.
-2. Addresses autocomplete.
-3. It displays the driving route returned from the API, **in the correct order**, on [Google Maps](https://developers.google.com/maps/).
-4. The application is responsive and renders well on all devices.
-
-## Adding your GOOGLE MAPS API key:
-
-Please NOTE: This app needs a google maps API key. API Key for using google maps is not included in the source code, instead the same has to be added by user in following file:
-
-1. Create a file called .env in the root of your project's directory.
-- your_project_folder
-  - node_modules
-  - public
-  - src
-  - .env         <-- create it here
-  - .gitignore
-  - package-lock.json
-  - package.json
-  
-2. Inside the .env file, create an environment variable with name REACT_APP_GOOGLE_API_KEY and assign it the API key. For example, your .env file should look like:
-
-   REACT_APP_GOOGLE_API_KEY=123456789AABBCC
-
-  Here 123456789AABBCC is the dummy key, replace it with yours.
 
