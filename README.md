@@ -17,7 +17,7 @@ This app has below functionalities majorly:
 
 ## Setup needed to run the app: 
 
-Please NOTE: This app needs a google maps API key. API Key for using google maps is not included in the source code, instead the same has to be added by user in following file:
+Please NOTE: This app needs a google maps API key. API Key for using google maps is not included in the source code, instead the same has to be added by user. Follow the steps mentioned below to add the same:
 
 1. Create a file called .env in the root of your project's directory.
 - your_project_folder
