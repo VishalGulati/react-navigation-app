@@ -10,7 +10,7 @@ import Message from '../Message/Message';
 class SearchForm extends Component {
   /**
  * @name componentDidUpdate
- * @description React Hook
+ * @description React component lifecycle hook
  */
   componentDidUpdate() {
     if (this.props.resetPending) {

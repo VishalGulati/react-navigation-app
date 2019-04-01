@@ -18,6 +18,10 @@ class AutoCompleteInput extends Component {
 
   static contextType = LocationsContext;
 
+  /**
+     * @name handlePlaceChanged
+     * @description This method to be execued when customer keys in input in text fields
+     */
   handlePlaceChanged = () => {
     const place = this.autocomplete.getPlace();
     if (place && place.geometry) {
@@ -28,6 +32,10 @@ class AutoCompleteInput extends Component {
     }
   };
 
+  /**
+     * @name resetField
+     * @description This method to be execued on click of cross button
+     */
   resetField = () => {
     this.autocompleteInput.current.value = '';
     this.context.updateLocation(this.props.inputId, '');
@@ -36,6 +44,10 @@ class AutoCompleteInput extends Component {
     });
   };
 
+  /**
+ * @name componentDidUpdate
+ * @description React component lifecycle hook
+ */
   componentDidUpdate() {
     if (this.context.mapLoaded && !this.autocomplete) {
       this.autocomplete = new window.google.maps.places.Autocomplete(

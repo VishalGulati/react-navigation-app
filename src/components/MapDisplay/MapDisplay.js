@@ -65,7 +65,7 @@ class MapDisplay extends Component {
 
   /**
  * @name componentDidUpdate
- * @description React Hook
+ * @description React component lifecycle hook
  */
   componentDidUpdate(prevProps) {
     if (this.props.mapLoaded && !prevProps.mapLoaded) {

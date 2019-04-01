@@ -183,7 +183,7 @@ class NavigationPage extends Component {
 
   /**
  * @name componentDidUpdate
- * @description React Hook
+ * @description React component lifecycle hook
  */
   componentDidMount() {
     window.initMap = this.initMap;
