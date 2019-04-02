@@ -3,6 +3,10 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). The app is live at: https://vishalgulati.github.io/react-navigation-app/
 The app is divided into multiple components. Components have been structured in 2 ways: Statefull/smart components kept in containers folder and presentational/dumb components inside components folder.
 
+<p align="center">
+  <img  src="https://lh3.googleusercontent.com/aYQfIB32eAjlChkO7qnNk4S5WB2nlucHfyZC7jOmWXxFzZ5F7wXnx7er9Xhtvpc0R7pSu3fXyBkRgIj_GeP_Gnsl9xXqSWilHMXkfm2TMWmF6Q_HdhScb6gUywUqGTT4aUeITWyMrw=w440-h488-no">
+</p>
+
 ## About the application 
 
 This app has below functionalities majorly:
