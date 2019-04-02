@@ -72,7 +72,8 @@ class NavigationPage extends Component {
 
   /**
      * @name makeRequestForRoute
-     * @description This method makes a request for route based on the endpoint it receives
+     * @description This method makes a request for route based on the endpoint it receives and retries
+     *  when server returns in progress status
      * @param endpoint the search endpoint
      */
   makeRequestForRoute = endpoint => {
@@ -88,10 +89,7 @@ class NavigationPage extends Component {
         } else {
           const { total_distance, total_time } = result.data;
           this.setMessageInState(
-            'total distance: ' +
-              total_distance +
-              ' <br/> total time: ' +
-              total_time
+            'total distance: ' + total_distance + ' \ntotal time: ' + total_time
           );
           this.setState({
             submitBtnLabel: 'Re-Submit',
@@ -140,12 +138,8 @@ class NavigationPage extends Component {
     });
     const { start, drop } = this.state;
     if (start && drop) {
-      const origin = this.getCords(
-          JSON.parse(JSON.stringify(this.state.start))
-        ),
-        destination = this.getCords(
-          JSON.parse(JSON.stringify(this.state.drop))
-        );
+      const origin = this.getCords(JSON.parse(JSON.stringify(start))),
+        destination = this.getCords(JSON.parse(JSON.stringify(drop)));
       this.makeRequestForToken(origin, destination);
     } else {
       this.setMessageInState(ERROR_MESSAGES.uiValidationError, 'error');
@@ -154,7 +148,7 @@ class NavigationPage extends Component {
 
   /**
      * @name resetDone
-     * @description This method marks the reset flag to true
+     * @description This method marks the reset flag to false when all fields have got reset
      */
   resetDone = () => {
     this.setState({ resetPending: false });

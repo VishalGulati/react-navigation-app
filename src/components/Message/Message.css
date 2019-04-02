@@ -1,3 +1,7 @@
 .text-red {
   color: red;
 }
+
+.message-container {
+  white-space: pre-wrap;
+}

@@ -21,13 +21,11 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "host",
     "props": Object {
-      "className": "text-red",
-      "dangerouslySetInnerHTML": Object {
-        "__html": "Test message",
-      },
+      "children": "Test message",
+      "className": "message-container text-red",
     },
     "ref": null,
-    "rendered": null,
+    "rendered": "Test message",
     "type": "p",
   },
   Symbol(enzyme.__nodes__): Array [
@@ -36,13 +34,11 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "host",
       "props": Object {
-        "className": "text-red",
-        "dangerouslySetInnerHTML": Object {
-          "__html": "Test message",
-        },
+        "children": "Test message",
+        "className": "message-container text-red",
       },
       "ref": null,
-      "rendered": null,
+      "rendered": "Test message",
       "type": "p",
     },
   ],

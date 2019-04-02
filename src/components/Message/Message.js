@@ -8,14 +8,14 @@ import './Message.css';
  */
 const Message = props => {
   const { message, messageType } = props;
-  const createMarkup = message => {
-    return { __html: message };
-  };
   return message ? (
     <p
-      className={messageType === 'error' ? 'text-red' : ''}
-      dangerouslySetInnerHTML={createMarkup(message)}
-    />
+      className={
+        'message-container ' + (messageType === 'error' ? 'text-red' : '')
+      }
+    >
+      {message}
+    </p>
   ) : null;
 };
 
