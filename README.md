@@ -39,6 +39,10 @@ Please NOTE: This app needs a google maps API key. API Key for using google maps
    REACT_APP_GOOGLE_API_KEY=123456789AABBCC
 
   Here 123456789AABBCC is the dummy key, replace it with yours.
+  
+ 3. Run command `npm install` on your terminal/command promp opened in the root directory of application.
+ 
+ 4. Run command `npm start` to start the application locally.
 
 ## Available Scripts
 
