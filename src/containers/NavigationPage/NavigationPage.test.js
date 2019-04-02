@@ -19,3 +19,21 @@ it('Component has container div with class app-body-container', () => {
 it('snapshot testing', () => {
   expect(wrapper).toMatchSnapshot();
 });
+
+describe('Test for api calls', () => {
+  const instance = wrapper.instance();
+  it('Should test for makeRequestForToken method', () => {
+    jest.spyOn(instance, 'makeRequestForToken');
+    instance.makeRequestForToken(
+      [30.3752011, 76.78212200000007],
+      [30.2752852, 77.04757999999993]
+    );
+    expect(instance.makeRequestForToken).toHaveBeenCalled();
+  });
+
+  it('Should test for makeRequestForRoute method', () => {
+    jest.spyOn(instance, 'makeRequestForRoute');
+    instance.makeRequestForRoute('/route/token');
+    expect(instance.makeRequestForRoute).toHaveBeenCalled();
+  });
+});
