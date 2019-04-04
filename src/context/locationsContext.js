@@ -1,7 +1,9 @@
 import React from 'react';
 
 const LocationsContext = React.createContext({
-  updateLocation: () => {}
+  updateLocation: () => {},
+  resetPending: false,
+  resetComplete: () => {}
 });
 
 export default LocationsContext;

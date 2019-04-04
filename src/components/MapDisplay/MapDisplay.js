@@ -77,6 +77,10 @@ class MapDisplay extends Component {
     }
   }
 
+  /**
+ * @name componentDidMount
+ * @description React component lifecycle hook
+ */
   componentDidMount() {
     this.showDefaultPosition();
   }

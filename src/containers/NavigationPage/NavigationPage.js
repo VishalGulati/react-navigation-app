@@ -186,7 +186,7 @@ class NavigationPage extends Component {
   };
 
   /**
- * @name componentDidUpdate
+ * @name componentDidMount
  * @description React component lifecycle hook
  */
   componentDidMount() {
@@ -205,13 +205,13 @@ class NavigationPage extends Component {
             <LocationsContext.Provider
               value={{
                 updateLocation: this.handleChange,
-                resetPending: this.state.resetPending
+                resetPending: this.state.resetPending,
+                resetComplete: this.resetDone
               }}
             >
               <SearchForm
                 handleSubmit={this.handleSubmit}
                 handleReset={this.handleReset}
-                resetDone={this.resetDone}
                 {...this.state}
               />
             </LocationsContext.Provider>

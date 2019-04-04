@@ -36,6 +36,7 @@ ShallowWrapper {
         </button>
         <button
           className="btn btn-secondary lp-btn"
+          onClick={[Function]}
           type="button"
         >
           Reset
@@ -67,6 +68,7 @@ ShallowWrapper {
           </button>,
           <button
             className="btn btn-secondary lp-btn"
+            onClick={[Function]}
             type="button"
           >
             Reset
@@ -134,7 +136,7 @@ ShallowWrapper {
           "props": Object {
             "children": "Reset",
             "className": "btn btn-secondary lp-btn",
-            "onClick": undefined,
+            "onClick": [Function],
             "type": "button",
           },
           "ref": null,
@@ -170,6 +172,7 @@ ShallowWrapper {
           </button>
           <button
             className="btn btn-secondary lp-btn"
+            onClick={[Function]}
             type="button"
           >
             Reset
@@ -201,6 +204,7 @@ ShallowWrapper {
             </button>,
             <button
               className="btn btn-secondary lp-btn"
+              onClick={[Function]}
               type="button"
             >
               Reset
@@ -268,7 +272,7 @@ ShallowWrapper {
             "props": Object {
               "children": "Reset",
               "className": "btn btn-secondary lp-btn",
-              "onClick": undefined,
+              "onClick": [Function],
               "type": "button",
             },
             "ref": null,

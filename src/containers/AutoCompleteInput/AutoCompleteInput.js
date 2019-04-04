@@ -51,9 +51,14 @@ class AutoCompleteInput extends Component {
   componentDidUpdate() {
     if (this.context.resetPending) {
       this.resetField();
+      this.context.resetComplete();
     }
   }
 
+  /**
+ * @name componentDidMount
+ * @description React component lifecycle hook
+ */
   componentDidMount() {
     this.autocomplete = new window.google.maps.places.Autocomplete(
       this.autocompleteInput.current,

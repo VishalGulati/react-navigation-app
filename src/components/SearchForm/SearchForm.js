@@ -9,15 +9,13 @@ import Message from '../Message/Message';
  */
 class SearchForm extends Component {
   /**
- * @name componentDidUpdate
- * @description React component lifecycle hook
+ * @name resetForm
+ * @description This method resets form state
  */
-  componentDidUpdate() {
-    if (this.props.resetPending) {
-      this.myFormRef.reset();
-      this.props.resetDone();
-    }
-  }
+  resetForm = () => {
+    this.myFormRef.reset();
+    this.props.handleReset();
+  };
 
   /**
      * @name getBtnLabel
@@ -58,7 +56,7 @@ class SearchForm extends Component {
           <button
             type="button"
             className="btn btn-secondary lp-btn"
-            onClick={this.props.handleReset}
+            onClick={this.resetForm}
           >
             Reset
           </button>
@@ -75,9 +73,7 @@ SearchForm.propTypes = {
   isDirty: PropTypes.bool,
   mapLoaded: PropTypes.bool,
   handleSubmit: PropTypes.func,
-  handleReset: PropTypes.func,
-  resetDone: PropTypes.func,
-  resetPending: PropTypes.bool
+  handleReset: PropTypes.func
 };
 
 export default SearchForm;
