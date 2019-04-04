@@ -14,7 +14,7 @@ This app has below functionalities majorly:
 1. Get one pickup location and one drop-off location from the user and submit them to the Mock API. Furthermore, this app makes sure that:
 	- API usage must be in accordance with the documentation.
 	- Errors are handled.
-	- Automatic retries are made when the backend is busy.
+	- Automatic retries are made when the backend is busy. This is configurable, for now the app will retry one more time in case server responds with status **in progress**. To play with this counter, change the value of constant **RETRY_COUNTER** declared in file: src/config/constants.js
 2. Addresses autocomplete.
 3. It displays the driving route returned from the API, **in the correct order**, on [Google Maps](https://developers.google.com/maps/).
 4. The application is responsive and renders well on all devices.
