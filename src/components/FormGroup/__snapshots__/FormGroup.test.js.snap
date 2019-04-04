@@ -20,9 +20,7 @@ ShallowWrapper {
     "props": Object {
       "children": Array [
         <label />,
-        <AutoCompleteInput
-          className="form-control"
-        />,
+        <AutoCompleteInput />,
       ],
       "className": "form-group",
     },
@@ -45,9 +43,7 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "class",
         "props": Object {
-          "className": "form-control",
           "inputId": undefined,
-          "mapLoaded": undefined,
         },
         "ref": null,
         "rendered": null,
@@ -64,9 +60,7 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <label />,
-          <AutoCompleteInput
-            className="form-control"
-          />,
+          <AutoCompleteInput />,
         ],
         "className": "form-group",
       },
@@ -89,9 +83,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "class",
           "props": Object {
-            "className": "form-control",
             "inputId": undefined,
-            "mapLoaded": undefined,
           },
           "ref": null,
           "rendered": null,

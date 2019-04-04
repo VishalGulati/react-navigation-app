@@ -30,9 +30,10 @@ ShallowWrapper {
         <Message />
         <button
           className="btn btn-primary lp-btn"
-          disabled={false}
           type="button"
-        />
+        >
+          Submit
+        </button>
         <button
           className="btn btn-secondary lp-btn"
           type="button"
@@ -60,9 +61,10 @@ ShallowWrapper {
           <Message />,
           <button
             className="btn btn-primary lp-btn"
-            disabled={false}
             type="button"
-          />,
+          >
+            Submit
+          </button>,
           <button
             className="btn btn-secondary lp-btn"
             type="button"
@@ -115,14 +117,14 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": undefined,
+            "children": "Submit",
             "className": "btn btn-primary lp-btn",
-            "disabled": false,
+            "disabled": undefined,
             "onClick": undefined,
             "type": "button",
           },
           "ref": null,
-          "rendered": null,
+          "rendered": "Submit",
           "type": "button",
         },
         Object {
@@ -162,9 +164,10 @@ ShallowWrapper {
           <Message />
           <button
             className="btn btn-primary lp-btn"
-            disabled={false}
             type="button"
-          />
+          >
+            Submit
+          </button>
           <button
             className="btn btn-secondary lp-btn"
             type="button"
@@ -192,9 +195,10 @@ ShallowWrapper {
             <Message />,
             <button
               className="btn btn-primary lp-btn"
-              disabled={false}
               type="button"
-            />,
+            >
+              Submit
+            </button>,
             <button
               className="btn btn-secondary lp-btn"
               type="button"
@@ -247,14 +251,14 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": undefined,
+              "children": "Submit",
               "className": "btn btn-primary lp-btn",
-              "disabled": false,
+              "disabled": undefined,
               "onClick": undefined,
               "type": "button",
             },
             "ref": null,
-            "rendered": null,
+            "rendered": "Submit",
             "type": "button",
           },
           Object {

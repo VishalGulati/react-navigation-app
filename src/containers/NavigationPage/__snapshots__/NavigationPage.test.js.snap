@@ -34,6 +34,8 @@ ShallowWrapper {
             drop=""
             handleReset={[Function]}
             handleSubmit={[Function]}
+            isDirty={false}
+            isLoading={false}
             mapLoaded={false}
             message=""
             messageType=""
@@ -42,12 +44,10 @@ ShallowWrapper {
             route={null}
             showRoute={false}
             start=""
-            submitBtnLabel="Submit"
           />
         </Context.Provider>
         <MapDisplay
           mapLoaded={false}
-          resetPending={false}
           route={null}
           showRoute={false}
         />
@@ -74,6 +74,8 @@ ShallowWrapper {
               drop=""
               handleReset={[Function]}
               handleSubmit={[Function]}
+              isDirty={false}
+              isLoading={false}
               mapLoaded={false}
               message=""
               messageType=""
@@ -82,12 +84,10 @@ ShallowWrapper {
               route={null}
               showRoute={false}
               start=""
-              submitBtnLabel="Submit"
             />
           </Context.Provider>,
           <MapDisplay
             mapLoaded={false}
-            resetPending={false}
             route={null}
             showRoute={false}
           />,
@@ -105,6 +105,8 @@ ShallowWrapper {
               drop=""
               handleReset={[Function]}
               handleSubmit={[Function]}
+              isDirty={false}
+              isLoading={false}
               mapLoaded={false}
               message=""
               messageType=""
@@ -113,7 +115,6 @@ ShallowWrapper {
               route={null}
               showRoute={false}
               start=""
-              submitBtnLabel="Submit"
             />,
             "value": Object {
               "mapLoaded": false,
@@ -130,6 +131,8 @@ ShallowWrapper {
               "drop": "",
               "handleReset": [Function],
               "handleSubmit": [Function],
+              "isDirty": false,
+              "isLoading": false,
               "mapLoaded": false,
               "message": "",
               "messageType": "",
@@ -138,7 +141,6 @@ ShallowWrapper {
               "route": null,
               "showRoute": false,
               "start": "",
-              "submitBtnLabel": "Submit",
             },
             "ref": null,
             "rendered": null,
@@ -175,7 +177,6 @@ ShallowWrapper {
           "nodeType": "class",
           "props": Object {
             "mapLoaded": false,
-            "resetPending": false,
             "route": null,
             "showRoute": false,
           },
@@ -210,6 +211,8 @@ ShallowWrapper {
               drop=""
               handleReset={[Function]}
               handleSubmit={[Function]}
+              isDirty={false}
+              isLoading={false}
               mapLoaded={false}
               message=""
               messageType=""
@@ -218,12 +221,10 @@ ShallowWrapper {
               route={null}
               showRoute={false}
               start=""
-              submitBtnLabel="Submit"
             />
           </Context.Provider>
           <MapDisplay
             mapLoaded={false}
-            resetPending={false}
             route={null}
             showRoute={false}
           />
@@ -250,6 +251,8 @@ ShallowWrapper {
                 drop=""
                 handleReset={[Function]}
                 handleSubmit={[Function]}
+                isDirty={false}
+                isLoading={false}
                 mapLoaded={false}
                 message=""
                 messageType=""
@@ -258,12 +261,10 @@ ShallowWrapper {
                 route={null}
                 showRoute={false}
                 start=""
-                submitBtnLabel="Submit"
               />
             </Context.Provider>,
             <MapDisplay
               mapLoaded={false}
-              resetPending={false}
               route={null}
               showRoute={false}
             />,
@@ -281,6 +282,8 @@ ShallowWrapper {
                 drop=""
                 handleReset={[Function]}
                 handleSubmit={[Function]}
+                isDirty={false}
+                isLoading={false}
                 mapLoaded={false}
                 message=""
                 messageType=""
@@ -289,7 +292,6 @@ ShallowWrapper {
                 route={null}
                 showRoute={false}
                 start=""
-                submitBtnLabel="Submit"
               />,
               "value": Object {
                 "mapLoaded": false,
@@ -306,6 +308,8 @@ ShallowWrapper {
                 "drop": "",
                 "handleReset": [Function],
                 "handleSubmit": [Function],
+                "isDirty": false,
+                "isLoading": false,
                 "mapLoaded": false,
                 "message": "",
                 "messageType": "",
@@ -314,7 +318,6 @@ ShallowWrapper {
                 "route": null,
                 "showRoute": false,
                 "start": "",
-                "submitBtnLabel": "Submit",
               },
               "ref": null,
               "rendered": null,
@@ -351,7 +354,6 @@ ShallowWrapper {
             "nodeType": "class",
             "props": Object {
               "mapLoaded": false,
-              "resetPending": false,
               "route": null,
               "showRoute": false,
             },

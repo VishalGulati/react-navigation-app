@@ -18,6 +18,22 @@ class SearchForm extends Component {
       this.props.resetDone();
     }
   }
+
+  /**
+     * @name getBtnLabel
+     * @description This method returns the label to be displayed on submit button, by default its Submit,
+     * once form submitted, it will be Re-Submit and during API request it will be Loading...
+     */
+  getBtnLabel = () => {
+    if (this.props.isLoading) {
+      return 'Loading...';
+    } else if (this.props.isDirty) {
+      return 'Re-Submit';
+    } else {
+      return 'Submit';
+    }
+  };
+
   render() {
     return (
       <div className="col-xs-12 col-md-4 left-panel">
@@ -34,10 +50,10 @@ class SearchForm extends Component {
           <button
             type="button"
             className="btn btn-primary lp-btn"
-            disabled={this.props.submitBtnLabel === 'Loading...'}
+            disabled={this.props.isLoading}
             onClick={this.props.handleSubmit}
           >
-            {this.props.submitBtnLabel}
+            {this.getBtnLabel()}
           </button>
           <button
             type="button"
@@ -55,10 +71,13 @@ class SearchForm extends Component {
 SearchForm.propTypes = {
   message: PropTypes.string,
   messageType: PropTypes.string,
-  submitBtnLabel: PropTypes.string,
+  isLoading: PropTypes.bool,
+  isDirty: PropTypes.bool,
   mapLoaded: PropTypes.bool,
   handleSubmit: PropTypes.func,
-  handleReset: PropTypes.func
+  handleReset: PropTypes.func,
+  resetDone: PropTypes.func,
+  resetPending: PropTypes.bool
 };
 
 export default SearchForm;

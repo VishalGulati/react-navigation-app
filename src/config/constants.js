@@ -12,7 +12,8 @@ export const DEFAULT_APP_STATE = {
   resetPending: false,
   showRoute: false,
   route: null,
-  submitBtnLabel: 'Submit'
+  isLoading: false,
+  isDirty: false
 };
 
 export const ERROR_MESSAGES = {

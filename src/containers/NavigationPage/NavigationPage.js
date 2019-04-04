@@ -66,7 +66,8 @@ class NavigationPage extends Component {
     this.setState({
       message: msg,
       messageType: msgType,
-      submitBtnLabel: 'Re-Submit'
+      isLoading: false,
+      isDirty: true
     });
   };
 
@@ -92,7 +93,6 @@ class NavigationPage extends Component {
             'total distance: ' + total_distance + ' \ntotal time: ' + total_time
           );
           this.setState({
-            submitBtnLabel: 'Re-Submit',
             showRoute: true,
             route: result.data.path
           });
@@ -130,7 +130,7 @@ class NavigationPage extends Component {
   handleSubmit = event => {
     event.preventDefault();
     this.setState({
-      submitBtnLabel: 'Loading...',
+      isLoading: true,
       message: '',
       messageType: '',
       showRoute: false,
@@ -205,7 +205,6 @@ class NavigationPage extends Component {
           <MapDisplay
             mapLoaded={this.state.mapLoaded}
             showRoute={this.state.showRoute}
-            resetPending={this.state.resetPending}
             route={this.state.route}
           />
         </div>
