@@ -20,19 +20,10 @@ const mockTokenResponse = {
 };
 
 describe('Test for api calls', () => {
-  it('Should test for getReq method', () => {
-    mock.onGet('/route/').reply(200, { data: mockTokenResponse });
-    const response = requestGenerator.getReq('/route');
-    response.then(res => {
-      expect(res).toEqual(mockTokenResponse);
-    });
-  });
-  it('Should test for getReq method', () => {
-    mock.onGet('/route').reply(500, { data: mockTokenResponse });
-    const response = requestGenerator.getReq('/route');
-    response.then(res => {
-      expect(res).toEqual(mockTokenResponse);
-    });
+  it('Should test for getReq method with 200', async () => {
+    mock.onGet('/route').reply(200, mockTokenResponse);
+    const response = await requestGenerator.getReq('/route');
+    expect(response.data).toEqual(mockTokenResponse);
   });
   it('Should test for postReq method for route as response', async () => {
     mock.onPost('/route/token').reply(200, mockDirectionResponse);
