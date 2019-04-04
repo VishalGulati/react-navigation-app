@@ -50,6 +50,8 @@ class MapDisplay extends Component {
       (response, status) => {
         if (status === 'OK') {
           this.directionsDisplay.setDirections(response);
+        } else {
+          window.alert('Directions request failed with status: ' + status);
         }
       }
     );
@@ -68,14 +70,15 @@ class MapDisplay extends Component {
  * @description React component lifecycle hook
  */
   componentDidUpdate(prevProps) {
-    if (this.props.mapLoaded && !prevProps.mapLoaded) {
-      this.showDefaultPosition();
-    }
     if (this.props.showRoute) {
       this.diaplayRoute();
     } else {
       this.resetMap();
     }
+  }
+
+  componentDidMount() {
+    this.showDefaultPosition();
   }
 
   render() {
@@ -88,7 +91,6 @@ class MapDisplay extends Component {
 }
 
 MapDisplay.propTypes = {
-  mapLoaded: PropTypes.bool,
   showRoute: PropTypes.bool,
   route: PropTypes.array
 };

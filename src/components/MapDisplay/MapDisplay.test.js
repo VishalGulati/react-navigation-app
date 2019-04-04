@@ -3,6 +3,16 @@ import ReactDOM from 'react-dom';
 import MapDisplay from './MapDisplay';
 import { shallow } from 'enzyme';
 
+window.google = {
+  maps: {
+    places: {
+      Autocomplete: class {}
+    },
+    DirectionsService: jest.fn(),
+    DirectionsRenderer: jest.fn(),
+    Map: jest.fn()
+  }
+};
 const wrapper = shallow(<MapDisplay />);
 
 it('renders without crashing', () => {

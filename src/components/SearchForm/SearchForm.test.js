@@ -4,7 +4,15 @@ import SearchForm from './SearchForm';
 import { shallow } from 'enzyme';
 
 const wrapper = shallow(<SearchForm />);
-
+window.google = {
+  maps: {
+    places: {
+      Autocomplete: class {
+        addListener = jest.fn();
+      }
+    }
+  }
+};
 it('renders without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(<SearchForm />, div);

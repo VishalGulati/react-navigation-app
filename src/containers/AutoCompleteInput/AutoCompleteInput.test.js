@@ -3,8 +3,17 @@ import ReactDOM from 'react-dom';
 import AutoCompleteInput from './AutoCompleteInput';
 import { shallow } from 'enzyme';
 
-const wrapper = shallow(<AutoCompleteInput />);
+window.google = {
+  maps: {
+    places: {
+      Autocomplete: class {
+        addListener = jest.fn();
+      }
+    }
+  }
+};
 
+const wrapper = shallow(<AutoCompleteInput />);
 it('renders without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(<AutoCompleteInput />, div);

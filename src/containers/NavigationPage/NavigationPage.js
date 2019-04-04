@@ -4,10 +4,10 @@ import SearchForm from '../../components/SearchForm/SearchForm';
 import MapDisplay from '../../components/MapDisplay/MapDisplay';
 import LocationsContext from '../../context/locationsContext';
 import {
-  GOOGLE_API_URL,
+  getApiUrl,
   DEFAULT_APP_STATE,
   ERROR_MESSAGES,
-  IN_PROGRESS_STATUS,
+  API_STATUS,
   RETRY_COUNTER
 } from '../../config/constants';
 import requestGenerator from '../../http-client/httpClient';
@@ -48,10 +48,12 @@ class NavigationPage extends Component {
      */
   checkForUnsuccessfulMsg = response => {
     switch (response.data.status) {
-      case 'success':
+      case API_STATUS.success:
         return '';
-      case 'failure':
+      case API_STATUS.failure:
         return response.data.error;
+      case API_STATUS.progress:
+        return ERROR_MESSAGES.retryFailure;
       default:
         return response.data.status;
     }
@@ -83,7 +85,7 @@ class NavigationPage extends Component {
       .getReq(endpoint)
       .then(result => {
         if (
-          result.data.status === IN_PROGRESS_STATUS &&
+          result.data.status === API_STATUS.progress &&
           this.state.retryCounter > 0
         ) {
           this.setState(prevState => ({
@@ -189,33 +191,38 @@ class NavigationPage extends Component {
  */
   componentDidMount() {
     window.initMap = this.initMap;
-    window.loadJS(`${GOOGLE_API_URL}&libraries=places&callback=initMap`);
+    const gmapsURL = getApiUrl();
+    if (gmapsURL) {
+      window.loadJS(`${gmapsURL}&libraries=places&callback=initMap`);
+    }
   }
 
   render() {
     return (
       <div className="app-body-container">
-        <div className="row">
-          <LocationsContext.Provider
-            value={{
-              mapLoaded: this.state.mapLoaded,
-              updateLocation: this.handleChange,
-              resetPending: this.state.resetPending
-            }}
-          >
-            <SearchForm
-              handleSubmit={this.handleSubmit}
-              handleReset={this.handleReset}
-              resetDone={this.resetDone}
-              {...this.state}
+        {this.state.mapLoaded ? (
+          <div className="row">
+            <LocationsContext.Provider
+              value={{
+                updateLocation: this.handleChange,
+                resetPending: this.state.resetPending
+              }}
+            >
+              <SearchForm
+                handleSubmit={this.handleSubmit}
+                handleReset={this.handleReset}
+                resetDone={this.resetDone}
+                {...this.state}
+              />
+            </LocationsContext.Provider>
+            <MapDisplay
+              showRoute={this.state.showRoute}
+              route={this.state.route}
             />
-          </LocationsContext.Provider>
-          <MapDisplay
-            mapLoaded={this.state.mapLoaded}
-            showRoute={this.state.showRoute}
-            route={this.state.route}
-          />
-        </div>
+          </div>
+        ) : (
+          <h1 className="error">{ERROR_MESSAGES.appNotLoaded}</h1>
+        )}
       </div>
     );
   }

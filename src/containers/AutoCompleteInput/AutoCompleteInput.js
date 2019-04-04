@@ -49,16 +49,17 @@ class AutoCompleteInput extends Component {
  * @description React component lifecycle hook
  */
   componentDidUpdate() {
-    if (this.context.mapLoaded && !this.autocomplete) {
-      this.autocomplete = new window.google.maps.places.Autocomplete(
-        this.autocompleteInput.current,
-        { types: ['geocode'] }
-      );
-      this.autocomplete.addListener('place_changed', this.handlePlaceChanged);
-    }
     if (this.context.resetPending) {
       this.resetField();
     }
+  }
+
+  componentDidMount() {
+    this.autocomplete = new window.google.maps.places.Autocomplete(
+      this.autocompleteInput.current,
+      { types: ['geocode'] }
+    );
+    this.autocomplete.addListener('place_changed', this.handlePlaceChanged);
   }
 
   render() {

@@ -4,7 +4,15 @@ import FormGroup from './FormGroup';
 import { shallow } from 'enzyme';
 
 const wrapper = shallow(<FormGroup />);
-
+window.google = {
+  maps: {
+    places: {
+      Autocomplete: class {
+        addListener = jest.fn();
+      }
+    }
+  }
+};
 it('renders without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(<FormGroup />, div);
