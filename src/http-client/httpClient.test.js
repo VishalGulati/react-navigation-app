@@ -34,22 +34,18 @@ describe('Test for api calls', () => {
       expect(res).toEqual(mockTokenResponse);
     });
   });
-  it('Should test for postReq method for route as response', () => {
-    mock.onPost('/route/token').reply(200, { data: mockDirectionResponse });
-    const response = requestGenerator.postReq('/route/token');
-    response.then(res => {
-      expect(res).toEqual(mockDirectionResponse);
-    });
+  it('Should test for postReq method for route as response', async () => {
+    mock.onPost('/route/token').reply(200, mockDirectionResponse);
+    const response = await requestGenerator.postReq('/route/token');
+    expect(response.data).toEqual(mockDirectionResponse);
   });
-  it('Should test for postReq method for Location not reachable by car', () => {
+  it('Should test for postReq method for Location not reachable by car', async () => {
     const mockDirectionResponse = {
       status: 'failure',
       error: 'Location not accessible by car'
     };
-    mock.onPost('/route/token').reply(200, { data: mockDirectionResponse });
-    const response = requestGenerator.postReq('/route/token');
-    response.then(res => {
-      expect(res).toEqual(mockDirectionResponse);
-    });
+    mock.onPost('/route/token').reply(200, mockDirectionResponse);
+    const response = await requestGenerator.postReq('/route/token');
+    expect(response.data).toEqual(mockDirectionResponse);
   });
 });
