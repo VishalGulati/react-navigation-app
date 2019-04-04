@@ -3,6 +3,8 @@ const GOOGLE_MAP_API = 'https://maps.googleapis.com/maps/api/js?key=';
 export const GOOGLE_API_URL =
   GOOGLE_MAP_API + process.env.REACT_APP_GOOGLE_API_KEY;
 
+export const RETRY_COUNTER = 1;
+
 export const DEFAULT_APP_STATE = {
   start: '',
   drop: '',
@@ -13,7 +15,8 @@ export const DEFAULT_APP_STATE = {
   showRoute: false,
   route: null,
   isLoading: false,
-  isDirty: false
+  isDirty: false,
+  retryCounter: RETRY_COUNTER
 };
 
 export const ERROR_MESSAGES = {

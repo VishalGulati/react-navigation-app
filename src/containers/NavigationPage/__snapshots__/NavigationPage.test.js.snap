@@ -41,6 +41,7 @@ ShallowWrapper {
             messageType=""
             resetDone={[Function]}
             resetPending={false}
+            retryCounter={1}
             route={null}
             showRoute={false}
             start=""
@@ -81,6 +82,7 @@ ShallowWrapper {
               messageType=""
               resetDone={[Function]}
               resetPending={false}
+              retryCounter={1}
               route={null}
               showRoute={false}
               start=""
@@ -112,6 +114,7 @@ ShallowWrapper {
               messageType=""
               resetDone={[Function]}
               resetPending={false}
+              retryCounter={1}
               route={null}
               showRoute={false}
               start=""
@@ -138,6 +141,7 @@ ShallowWrapper {
               "messageType": "",
               "resetDone": [Function],
               "resetPending": false,
+              "retryCounter": 1,
               "route": null,
               "showRoute": false,
               "start": "",
@@ -218,6 +222,7 @@ ShallowWrapper {
               messageType=""
               resetDone={[Function]}
               resetPending={false}
+              retryCounter={1}
               route={null}
               showRoute={false}
               start=""
@@ -258,6 +263,7 @@ ShallowWrapper {
                 messageType=""
                 resetDone={[Function]}
                 resetPending={false}
+                retryCounter={1}
                 route={null}
                 showRoute={false}
                 start=""
@@ -289,6 +295,7 @@ ShallowWrapper {
                 messageType=""
                 resetDone={[Function]}
                 resetPending={false}
+                retryCounter={1}
                 route={null}
                 showRoute={false}
                 start=""
@@ -315,6 +322,7 @@ ShallowWrapper {
                 "messageType": "",
                 "resetDone": [Function],
                 "resetPending": false,
+                "retryCounter": 1,
                 "route": null,
                 "showRoute": false,
                 "start": "",

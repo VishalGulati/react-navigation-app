@@ -7,7 +7,8 @@ import {
   GOOGLE_API_URL,
   DEFAULT_APP_STATE,
   ERROR_MESSAGES,
-  IN_PROGRESS_STATUS
+  IN_PROGRESS_STATUS,
+  RETRY_COUNTER
 } from '../../config/constants';
 import requestGenerator from '../../http-client/httpClient';
 import { URLS } from '../../config/endpoints';
@@ -81,7 +82,13 @@ class NavigationPage extends Component {
     requestGenerator
       .getReq(endpoint)
       .then(result => {
-        if (result.data.status === IN_PROGRESS_STATUS) {
+        if (
+          result.data.status === IN_PROGRESS_STATUS &&
+          this.state.retryCounter > 0
+        ) {
+          this.setState(prevState => ({
+            retryCounter: prevState.retryCounter - 1
+          }));
           return this.makeRequestForRoute(endpoint);
         }
         const unsuccessfulMsg = this.checkForUnsuccessfulMsg(result);
@@ -134,7 +141,8 @@ class NavigationPage extends Component {
       message: '',
       messageType: '',
       showRoute: false,
-      route: null
+      route: null,
+      retryCounter: RETRY_COUNTER
     });
     const { start, drop } = this.state;
     if (start && drop) {
