@@ -22,7 +22,7 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": "Test message",
-      "className": "message-container text-red",
+      "className": "message-container error",
     },
     "ref": null,
     "rendered": "Test message",
@@ -35,7 +35,7 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": "Test message",
-        "className": "message-container text-red",
+        "className": "message-container error",
       },
       "ref": null,
       "rendered": "Test message",

@@ -15,8 +15,8 @@ describe('testing Message Component for non-error type messages', () => {
     ReactDOM.unmountComponentAtNode(div);
   });
 
-  it('Component has container p with class text-red', () => {
-    expect(wrapper.find('p').hasClass('text-red')).toEqual(true);
+  it('Component has container p with class error', () => {
+    expect(wrapper.find('p').hasClass('error')).toEqual(true);
   });
 });
 
@@ -33,8 +33,8 @@ describe('testing Message Component for non-error type messages', () => {
     ReactDOM.unmountComponentAtNode(div);
   });
 
-  it('Component should not have container p with class text-red', () => {
-    expect(wrapper.find('p').hasClass('text-red')).toEqual(false);
+  it('Component should not have container p with class error', () => {
+    expect(wrapper.find('p').hasClass('error')).toEqual(false);
   });
 });
 

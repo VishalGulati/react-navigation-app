@@ -11,7 +11,7 @@ const Message = props => {
   return message ? (
     <p
       className={
-        'message-container ' + (messageType === 'error' ? 'text-red' : '')
+        'message-container ' + (messageType === 'error' ? 'error' : '')
       }
     >
       {message}
