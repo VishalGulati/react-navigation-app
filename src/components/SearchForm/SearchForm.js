@@ -71,7 +71,6 @@ SearchForm.propTypes = {
   messageType: PropTypes.string,
   isLoading: PropTypes.bool,
   isDirty: PropTypes.bool,
-  mapLoaded: PropTypes.bool,
   handleSubmit: PropTypes.func,
   handleReset: PropTypes.func
 };
